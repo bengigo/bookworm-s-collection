@@ -6,7 +6,7 @@ import displayForm from "./modules/displayForm.js";
 
 import displayList from "./modules/displayList.js";
 
-// import displayTime
+import displayTime from "./modules/displayTime.js"
 
 Book.add();
 
@@ -14,8 +14,11 @@ Book.display();
 
 Book.remove();
 
-displayList();
+// displayList();
 
-displayForm();
+// displayForm();
 
-displayContact();
+// displayContact();
+
+// displayTime();
+setInterval(displayTime, 1000);
