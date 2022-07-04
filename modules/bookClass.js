@@ -20,7 +20,6 @@ export default class Book {
         const newBook = new Book(title.value, author.value);
         awesomeBooks.push(newBook);
         localStorage.setItem('awesomeBooks', JSON.stringify(awesomeBooks));
-        // window.location.reload();
         title.value = '';
         author.value = '';
         addMessage.style.display = 'flex';
