@@ -13,3 +13,9 @@ Book.add();
 Book.display();
 
 Book.remove();
+
+displayList();
+
+displayForm();
+
+displayContact();
