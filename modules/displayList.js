@@ -12,3 +12,5 @@ const displayList = () => {
     window.location.reload();
   });
 };
+
+export default displayList();

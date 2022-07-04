@@ -11,3 +11,5 @@ const displayForm = () => {
     contactPage.style.display = 'none';
   });
 };
+
+export default displayForm();

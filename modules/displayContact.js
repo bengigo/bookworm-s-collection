@@ -11,3 +11,5 @@ const displayContact = () => {
     contactPage.style.display = 'flex';
   });
 };
+
+export default displayContact();
