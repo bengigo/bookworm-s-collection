@@ -1,4 +1,4 @@
-function displayContact() {
+const displayContact = () => {
   const contactLink = document.querySelector('#contact');
 
   const listPage = document.querySelector('#display-section');
@@ -10,4 +10,4 @@ function displayContact() {
     formPage.style.display = 'none';
     contactPage.style.display = 'flex';
   });
-}
+};
