@@ -14,11 +14,10 @@ Book.display();
 
 Book.remove();
 
-// displayList();
+displayList();
 
-// displayForm();
+displayForm();
 
-// displayContact();
+displayContact();
 
-// displayTime();
 setInterval(displayTime, 1000);
