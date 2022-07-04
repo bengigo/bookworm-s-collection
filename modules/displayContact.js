@@ -10,4 +10,4 @@ export default function displayContact() {
     formPage.style.display = 'none';
     contactPage.style.display = 'flex';
   });
-};
+}

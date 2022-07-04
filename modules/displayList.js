@@ -11,4 +11,4 @@ export default function displayList() {
     contactPage.style.display = 'none';
     window.location.reload();
   });
-};
+}
