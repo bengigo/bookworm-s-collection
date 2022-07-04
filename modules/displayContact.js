@@ -1,4 +1,4 @@
-function displayContainer() {
+function displayContact() {
   const contactLink = document.querySelector('#contact');
 
   const listPage = document.querySelector('#display-section');
