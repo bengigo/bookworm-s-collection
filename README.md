@@ -28,10 +28,11 @@ To get a local copy up and running follow these simple example steps.
 
 
 ## Author
+👤 Bengi Genç
 
 - GitHub: [@githubhandle](https://github.com/bengigo)
 - Twitter: [@twitterhandle](https://twitter.com/bengi_gb)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/bengi-g-03b883199/)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/bengigenc/)
 
 ## 🤝 Contributing
 
