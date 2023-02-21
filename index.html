@@ -1,63 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>✨Awesome Books✨</title>
-    <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bookworm's Collection</title>
+  <link rel="stylesheet" href="index.css">
 </head>
+
 <body>
-    <header>
-        <div id="logo">Awesome Books</div>
-        <p id="add-message">Book is added <span class="material-symbols-outlined">
-            arrow_forward
-            </span></p>
-        <nav>
-            <ul id="nav-list">
-                <li class="nav-item"><a id="list" href="#">List</a></li>
-                <li class="nav-item bordered"><a id="add" href="#">Add New</a></li>
-                <li class="nav-item"><a id="contact" href="#">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <p id="time"></p>
-
-    <section id="display-section">
-        <h1>Awesome Books</h1>
-        <div id="display"></div>
-
-    </section>
-
-    <section id="form-section">
-        <h2>Add a new book</h2>
-        <form>
-            <input type="text" id="title" placeholder="Title">
-            <input type="text" id="author" placeholder="Author">
-            <div id="message-alert"></div>
-            <button id="add-btn">Add</button>
-        </form>
-    </section>
-
-    <section id="contact-section">
-        <h2>Contact information</h2>
-        <p>Do you have any questions or you just want to say "Hello"?<br> You can reach out to us!</p>
-
-        <ul>
-            <li>Our e-mail: mail@mail.com</li>
-            <li>Our phone number: 282539427133</li>
-            <li>Our address: Daydreaming Street, Who Knows Where, 48480</li>
-        </ul>
-    </section>
-
-    <footer>
-        <div class="footer">
-        <p>Copyright ...</p>
-        <p>Awesome Books</p>
+  <aside>
+    <div class="dashboard-section">
+      <button type="button" class="add" id="add-collection">Add to collection</button>
+      <form id="collection-form">
+        <div>
+          <label for="title">Title:</label>
+          <input class="field" type="text" id="title-collection" name="title">
         </div>
-    </footer>
-    <script type="module" src="index.js"></script>
+        <div>
+          <label for="author">Author:</label>
+          <input class="field" type="text" id="author-collection" name="author">
+        </div>
+
+        <div>
+          <label for="year">Publish year:</label>
+          <input class="field" type="text" id="year-collection" name="year">
+        </div>
+        <div>
+          <label for="pages">Number of pages:</label>
+          <input class="field" type="text" id="pages-collection" name="pages">
+        </div>
+        <div id="checks">
+          <div>
+            <label for="read">Read</label>
+            <input type="radio" id="read" name="status">
+          </div>
+          <div>
+            <label for="not-read">Not read</label>
+            <input type="radio" id="not-read" name="status">
+          </div>
+        </div>
+        <button class="submit" type="button" id="submit-collection">Submit</button>
+      </form>
+    </div>
+
+    <div class="dashboard-section">
+      <button type="button" class="add" id="add-whislist">Add to whislist</button>
+      <form id="whislist-form">
+        <div>
+          <label for="author">Author:</label>
+          <input class="field" type="text" id="author" name="author">
+        </div>
+        <div>
+          <label for="title">Title:</label>
+          <input class="field" type="text" id="title" name="title">
+        </div>
+        <div>
+          <label for="year">Publish year:</label>
+          <input class="field" type="text" id="year" name="year">
+        </div>
+        <div>
+          <label for="pages">Number of pages:</label>
+          <input class="field" type="text" id="pages" name="pages">
+        </div>
+        <button class="submit" type="button" id="submit-whislist">Submit</button>
+      </form>
+    </div>
+  </aside>
+  <section>
+    <nav>
+      <ul>
+        <li>MY COLLECTION</li>
+        <li>MY WHISLIST</li>
+      </ul>
+    </nav>
+
+    <div id="collection" class="list-container">
+      <h2>COLLECTION</h2>
+      <div class="books">
+        <ul id="book-list"></ul>
+      </div>
+    </div>
+
+    <div id="whislist" class="list-container">
+      <h2>WHISLIST</h2>
+      <div class="book">
+        <table>
+          <tr>
+            <th class="large">Author</th>
+            <th class="large">Title</th>
+            <th class="small">Publish Year</th>
+            <th class="small">Number of Pages</th>
+            <th class="small">toggle</th>
+            <th class="small">ebook?</th>
+            <th class="medium"></th>
+          </tr>
+          <tbody id="book-list"></tbody>
+        </table>
+      </div>
+    </div>
+
+  </section>
+  <script src="index.js"></script>
 </body>
+
 </html>
