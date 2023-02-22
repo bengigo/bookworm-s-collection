@@ -71,6 +71,20 @@ aside {
   justify-content: space-evenly;
 }
 
+form div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card div {
+  padding: 5px 17px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 #checks div {
   margin: 0 5px;
   display: flex;
@@ -108,12 +122,6 @@ aside {
   margin-top: 5px;
 }
 
-form div {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
 label {
   font-size: 15px;
   color: white;
@@ -130,6 +138,7 @@ section {
 nav {
   /* border: 1px solid; */
   padding: 25px;
+
   /* background-color: #233142; */
   width: 50vw;
 }
@@ -141,12 +150,16 @@ nav ul {
   list-style-type: none;
 }
 
+li {
+  display: flex;
+  align-items: center;
+  margin: 10px;
+}
+
 nav li {
-  /* color: #3f6d50; */
   color: #614f89;
   border-bottom: 2px double #3f6d50;
   padding: 5px;
-  /* border-bottom: 2px solid #FEA4B9; */
   cursor: pointer;
 }
 
@@ -168,32 +181,18 @@ table {
   box-shadow: inset 3px 1px 20px 16px rgba(163, 212, 181, 0.2);
 }
 
-.card div {
-  /* border: 1px dotted red; */
-  padding: 5px 17px;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .card-title {
   font-size: 22px;
   text-shadow: 5px 5px 10px rgba(97, 79, 137, 0.4);
   color: #614f89;
 }
+
 .card div p {
   padding: 0 10px;
 }
 
 .info {
   font-size: 17px;
-}
-
-li {
-  display: flex;
-  align-items: center;
-  margin: 10px;
 }
 
 .book-list li {
@@ -203,11 +202,6 @@ li {
   scroll-behavior: smooth;
   width: calc(100vw - 300px);
   margin-bottom: 80px;
-}
-
-li div {
-  display: flex;
-  align-items: center;
 }
 
 .remove {
