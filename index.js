@@ -1,32 +1,32 @@
-const addToCollection = document.querySelector('#add-collection');
-const addToWhislist = document.querySelector('#add-whislist')
-const collectionForm = document.querySelector('#collection-form');
-const whislistForm = document.querySelector('#whislist-form')
-const collectionAuthorInput = document.querySelector('#author-collection');
-const collectionTitleInput = document.querySelector('#title-collection');
-const collectionYearInput = document.querySelector('#year-collection');
-const collectionPagesInput = document.querySelector('#pages-collection');
-const readCheck = document.querySelector('#read');
-const notReadCheck = document.querySelector('#not-read');
-let status = '';
+const addToCollection = document.querySelector("#add-collection");
+const addToWhislist = document.querySelector("#add-whislist");
+const collectionForm = document.querySelector("#collection-form");
+const whislistForm = document.querySelector("#whislist-form");
+const collectionAuthorInput = document.querySelector("#author-collection");
+const collectionTitleInput = document.querySelector("#title-collection");
+const collectionYearInput = document.querySelector("#year-collection");
+const collectionPagesInput = document.querySelector("#pages-collection");
+const readCheck = document.querySelector("#read");
+const notReadCheck = document.querySelector("#not-read");
+let status = "";
 function statusCheck() {
   if (readCheck.checked) {
-    status = 'Read';
+    status = "Read";
   }
   if (notReadCheck.checked) {
-    status = 'Not read';
+    status = "Not read";
   }
   return status;
 }
-const submitToCollection = document.querySelector('#submit-collection');
-const submitToWhislist = document.querySelector('#submit-whislist')
-const bookList = document.querySelector('#book-list');
+const submitToCollection = document.querySelector("#submit-collection");
+const submitToWhislist = document.querySelector("#submit-whislist");
+const bookList = document.querySelector(".book-list");
 let newBook = {};
 
 let collection = [];
-collection = JSON.parse(localStorage.getItem('collection') || '[]');
+collection = JSON.parse(localStorage.getItem("collection") || "[]");
 
-function Book( title, author, publishYear, numberOfPages, status) {
+function Book(title, author, publishYear, numberOfPages, status) {
   this.title = title;
   this.author = author;
   this.publishYear = publishYear;
@@ -36,46 +36,45 @@ function Book( title, author, publishYear, numberOfPages, status) {
 }
 
 function displayCollection() {
-  bookList.innerHTML = '';
-  let checkedStatus = '';
+  bookList.innerHTML = "";
+  let checkedStatus = "";
   let collection = [];
-  collection = JSON.parse(localStorage.getItem('collection') || '[]');
+  collection = JSON.parse(localStorage.getItem("collection") || "[]");
   collection.forEach((book) => {
-    if (book.status === 'Read') {
-      checkedStatus = 'checked';
+    if (book.status === "Read") {
+      checkedStatus = "checked";
     } else {
-      checkedStatus = '';
+      checkedStatus = "";
     }
     bookList.innerHTML += `
     <li class="card">
-      <p>${book.title} by ${book.author}</p>
       <div>
-        <p>Publish year: ${book.publishYear}</p>
-        <p> Number of pages: ${book.numberOfPages}</p>
+        <p class="card-title">${book.title} by ${book.author}</p>
       </div>
       <div>
-      <div>
-      <p>ebook?</p>
-
-      <p>${book.status}</p>
-  
-      <p class="switch-input small"><label class="switch"><input class="switch-input"
-       type="checkbox" ${checkedStatus}><span class="slider" id="${book.index}"></span></label></p></div>
+        <p class="info">Publish year: ${book.publishYear}</p>
+        <p class="info"> Number of pages: ${book.numberOfPages}</p>
       </div>
-      <p class="medium"><button class="remove" id="${book.index}">remove</button></p>
-
+      <div>
+        <p>ebook?</p>
+        <p>${book.status}</p>
+        <p class="switch-input small"><label class="switch"><input class="switch-input"
+        type="checkbox" ${checkedStatus}><span class="slider" id="${book.index}"></span></label></p>
+      </div>
+      <div>
+        <p class="medium"><button class="remove" id="${book.index}">Remove</button></p>
+      </div>
     </li>
     `;
-
   });
 }
 
 function displayCollectionForm() {
-  collectionForm.classList.add('active');
+  collectionForm.classList.add("active");
 }
 
 function displayWhislistForm() {
-  whislistForm.classList.add('active');
+  whislistForm.classList.add("active");
 }
 
 function createBook() {
@@ -89,32 +88,31 @@ function createBook() {
 
 function addCollectionBook() {
   let collection = [];
-  collection = JSON.parse(localStorage.getItem('collection') || '[]');
+  collection = JSON.parse(localStorage.getItem("collection") || "[]");
   collection.push(newBook);
   collection.forEach((book, i) => {
     book.index = i + 1;
   });
-  localStorage.setItem('collection', JSON.stringify(collection));
+  localStorage.setItem("collection", JSON.stringify(collection));
 }
 
 function hideCollectionForm() {
-  collectionForm.classList.remove('active');
+  collectionForm.classList.remove("active");
 }
 
 function hideWhislistForm() {
-  whislistForm.classList.remove('active');
+  whislistForm.classList.remove("active");
 }
 
-addToCollection.addEventListener('click', () => {
+addToCollection.addEventListener("click", () => {
   displayCollectionForm();
 });
 
-addToWhislist.addEventListener('click', () => {
+addToWhislist.addEventListener("click", () => {
   displayWhislistForm();
-})
+});
 
-
-submitToCollection.addEventListener('click', (e) => {
+submitToCollection.addEventListener("click", (e) => {
   e.preventDefault();
   // not applying a form validation to prevent empty input value submits
   // because input fields will be converted to 'required'
@@ -126,31 +124,33 @@ submitToCollection.addEventListener('click', (e) => {
 
 displayCollection();
 
-submitToWhislist.addEventListener('click', (e) => {
+submitToWhislist.addEventListener("click", (e) => {
   e.preventDefault();
   setTimeout(hideWhislistForm, 150);
-})
+});
 
-bookList.addEventListener('click', (e) => {
+bookList.addEventListener("click", (e) => {
   e.preventDefault();
-  if (e.target.classList.contains('remove')) {
-    let collection = JSON.parse(localStorage.getItem('collection') || '[]');
-    collection = collection.filter((book) => book.index !== Number(e.target.id));
+  if (e.target.classList.contains("remove")) {
+    let collection = JSON.parse(localStorage.getItem("collection") || "[]");
+    collection = collection.filter(
+      (book) => book.index !== Number(e.target.id)
+    );
     collection.forEach((book, i) => {
       book.index = i + 1;
     });
-    localStorage.setItem('collection', JSON.stringify(collection));
+    localStorage.setItem("collection", JSON.stringify(collection));
     displayCollection();
   }
-  if (e.target.classList.contains('slider')) {
-    const collection = JSON.parse(localStorage.getItem('collection') || '[]');
+  if (e.target.classList.contains("slider")) {
+    const collection = JSON.parse(localStorage.getItem("collection") || "[]");
     const objIndex = Number(e.target.id);
-    if (collection[objIndex - 1].status === 'Read') {
-      collection[objIndex - 1].status = 'Not read';
+    if (collection[objIndex - 1].status === "Read") {
+      collection[objIndex - 1].status = "Not read";
     } else {
-      collection[objIndex - 1].status = 'Read';
+      collection[objIndex - 1].status = "Read";
     }
-    localStorage.setItem('collection', JSON.stringify(collection));
+    localStorage.setItem("collection", JSON.stringify(collection));
     displayCollection();
   }
 });

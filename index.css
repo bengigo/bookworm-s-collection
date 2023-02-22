@@ -7,8 +7,9 @@
   -webkit-box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: "Nunito", sans-serif;
   font-size: 20px;
+  font-family: "Chillax", sans-serif;
+  color: #233142;
 }
 
 body {
@@ -16,14 +17,13 @@ body {
 }
 
 aside {
-  background-color: #614F89;
-  /* #FEA4B9 */
+  background-color: #614f89;
   width: 320px;
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;  
+  align-items: center;
 }
 
 .dashboard-section {
@@ -34,28 +34,41 @@ aside {
   padding: 15px 5px;
 }
 
-.dashboard-section label {
-  color: #a3d4b5;
-}
-
 .add {
   height: 50px;
   border: none;
   margin-bottom: 5px;
-  background-color: #FEA4B9;
+  background-color: #fea4b9;
   color: #3f6d50;
-
-
 }
 
 .field {
-  width: 190px;
+  width: 100%;
+}
+
+::placeholder {
+  padding: 1px 3px;
 }
 
 #checks {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-evenly;
+  padding: 3px 0;
+}
+
+#print-check {
+  width: 80%;
+  border-bottom: 1px dotted white;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#status-check {
+  width: 80%;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 #checks div {
@@ -66,9 +79,8 @@ aside {
 }
 
 .submit {
-  /* width: 80px; */
   align-self: center;
-  background-color: #FEA4B9;
+  background-color: #fea4b9;
   border: none;
   color: #3f6d50;
   padding: 10px 15px;
@@ -76,7 +88,6 @@ aside {
 
 #collection-form {
   display: none;
-
 }
 
 #collection-form.active {
@@ -93,6 +104,10 @@ aside {
   flex-direction: column;
 }
 
+#whislist-form .submit {
+  margin-top: 5px;
+}
+
 form div {
   display: flex;
   justify-content: space-between;
@@ -101,7 +116,7 @@ form div {
 
 label {
   font-size: 15px;
-  color:white
+  color: white;
 }
 
 section {
@@ -122,17 +137,18 @@ nav {
 nav ul {
   display: flex;
   align-items: center;
-  justify-content:space-evenly;
+  justify-content: space-evenly;
   list-style-type: none;
-  }
-
-nav li {
-  color: #3f6d50;
-
 }
 
-/* IMPLEMENT HOVER EFFECT FOR NAV LI ELEMENTS SO THEY APPEAR AS LINKS */
-
+nav li {
+  /* color: #3f6d50; */
+  color: #614f89;
+  border-bottom: 2px double #3f6d50;
+  padding: 5px;
+  /* border-bottom: 2px solid #FEA4B9; */
+  cursor: pointer;
+}
 
 .list-container {
   height: 100%;
@@ -142,32 +158,51 @@ nav li {
   overflow: scroll;
 }
 
-h2 {
-  margin: 20px 0;
-}
-
 table {
   width: 100%;
   height: calc(100vh - 309px);
 }
-/* card */
+
 .card {
   padding: 10px 5px;
-  border: 3px solid pink;
+  box-shadow: inset 3px 1px 20px 16px rgba(163, 212, 181, 0.2);
+}
+
+.card div {
+  /* border: 1px dotted red; */
+  padding: 5px 17px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-title {
+  font-size: 22px;
+  text-shadow: 5px 5px 10px rgba(97, 79, 137, 0.4);
+  color: #614f89;
+}
+.card div p {
+  padding: 0 10px;
+}
+
+.info {
+  font-size: 17px;
 }
 
 li {
   display: flex;
   align-items: center;
   margin: 10px;
-
 }
 
-#book-list li {
-  /* border: 1px solid; */
+.book-list li {
   display: flex;
   flex-direction: column;
-
+  overflow: scroll;
+  scroll-behavior: smooth;
+  width: calc(100vw - 300px);
+  margin-bottom: 80px;
 }
 
 li div {
@@ -175,26 +210,17 @@ li div {
   align-items: center;
 }
 
-th {
-  font-size: 16px;
-  background-color: rgb(210, 178, 183);
+.remove {
+  padding: 5px 10px;
+  border: none;
+  background-color: #a3d4b5;
+  border-radius: 30px;
+  color: #614f89;
 }
-
-
-.books {
-  overflow: scroll;
-  scroll-behavior: smooth;
-  width: calc(100vw - 300px);
-  margin-bottom: 80px;
-  border-collapse: collapse;
-}
-
 
 #whislist {
   display: none;
 }
-
-
 
 /* The switch - the box around the slider */
 .switch {
@@ -239,11 +265,11 @@ th {
 }
 
 input:checked + .slider {
-  background-color: #2196f3;
+  background-color: #a3d4b5;
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #2196f3;
+  box-shadow: 0 0 1px #a3d4b5;
 }
 
 input:checked + .slider::before {
