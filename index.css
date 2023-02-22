@@ -109,16 +109,16 @@ form div {
   flex-direction: column;
 }
 
-#whislist-form {
+#wishlist-form {
   display: none;
 }
 
-#whislist-form.active {
+#wishlist-form.active {
   display: flex;
   flex-direction: column;
 }
 
-#whislist-form .submit {
+#wishlist-form .submit {
   margin-top: 5px;
 }
 
@@ -212,7 +212,7 @@ table {
   color: #614f89;
 }
 
-#whislist {
+#wishlist {
   display: none;
 }
 

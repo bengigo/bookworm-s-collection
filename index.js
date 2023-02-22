@@ -1,7 +1,7 @@
 const addToCollection = document.querySelector('#add-collection');
-const addToWhislist = document.querySelector('#add-whislist');
+const addToWishlist = document.querySelector('#add-wishlist');
 const collectionForm = document.querySelector('#collection-form');
-const whislistForm = document.querySelector('#whislist-form');
+const wishlistForm = document.querySelector('#wishlist-form');
 const collectionAuthorInput = document.querySelector('#author-collection');
 const collectionTitleInput = document.querySelector('#title-collection');
 const collectionYearInput = document.querySelector('#year-collection');
@@ -19,7 +19,7 @@ function statusCheck() {
   return status;
 }
 const submitToCollection = document.querySelector('#submit-collection');
-const submitToWhislist = document.querySelector('#submit-whislist');
+const submitToWishlist = document.querySelector('#submit-wishlist');
 const bookList = document.querySelector('.book-list');
 let newBook = {};
 
@@ -73,8 +73,8 @@ function displayCollectionForm() {
   collectionForm.classList.add('active');
 }
 
-function displayWhislistForm() {
-  whislistForm.classList.add('active');
+function displayWishlistForm() {
+  wishlistForm.classList.add('active');
 }
 
 function createBook() {
@@ -100,16 +100,16 @@ function hideCollectionForm() {
   collectionForm.classList.remove('active');
 }
 
-function hideWhislistForm() {
-  whislistForm.classList.remove('active');
+function hideWishlistForm() {
+  wishlistForm.classList.remove('active');
 }
 
 addToCollection.addEventListener('click', () => {
   displayCollectionForm();
 });
 
-addToWhislist.addEventListener('click', () => {
-  displayWhislistForm();
+addToWishlist.addEventListener('click', () => {
+  displayWishlistForm();
 });
 
 submitToCollection.addEventListener('click', (e) => {
@@ -124,9 +124,9 @@ submitToCollection.addEventListener('click', (e) => {
 
 displayCollection();
 
-submitToWhislist.addEventListener('click', (e) => {
+submitToWishlist.addEventListener('click', (e) => {
   e.preventDefault();
-  setTimeout(hideWhislistForm, 150);
+  setTimeout(hideWishlistForm, 150);
 });
 
 bookList.addEventListener('click', (e) => {
