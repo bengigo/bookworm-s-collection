@@ -9,16 +9,18 @@ const linkInput = document.querySelector('#purchase-link');
 const submitToWishlist = document.querySelector('#submit-wishlist');
 const wishlistContainer = document.querySelector('#wishlist-container');
 const wishList = document.querySelector('#wishlist');
+const collectionContainer = document.querySelector('#collection-container');
+
 let newWishBook = {};
 
 let wishlist = [];
 wishlist = JSON.parse(localStorage.getItem('wishlist') || '[]');
 
 wishlistLink.addEventListener('click', () => {
-    collectionContainer.style.display = 'none';
-    wishlistContainer.style.display = 'flex';
-})
-  
+  collectionContainer.style.display = 'none';
+  wishlistContainer.style.display = 'flex';
+});
+
 function hideWishlistForm() {
   wishlistForm.classList.remove('active');
 }
