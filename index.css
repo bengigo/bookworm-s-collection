@@ -16,11 +16,6 @@ body {
   display: flex;
 }
 
-
-
-
-
-
 aside {
   background-color: #614f89;
   width: 320px;
@@ -141,10 +136,7 @@ section {
 }
 
 nav {
-  /* border: 1px solid; */
   padding: 25px;
-
-  /* background-color: #233142; */
   width: 50vw;
 }
 
@@ -229,7 +221,6 @@ table {
   color: #614f89;
 }
 
-
 /* The switch - the box around the slider */
 .switch {
   position: relative;
@@ -285,6 +276,3 @@ input:checked + .slider::before {
   -ms-transform: translateX(26px);
   transform: translateX(26px);
 }
-
-
-
