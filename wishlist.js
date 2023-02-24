@@ -14,7 +14,6 @@ let wishlist = [];
 wishlist = JSON.parse(localStorage.getItem('wishlist') || '[]');
 
 wishlistLink.addEventListener('click', () => {
-    alert('clicked to wishlist link');
     collectionContainer.style.display = 'none';
     wishlistContainer.style.display = 'flex';
 })
@@ -75,7 +74,7 @@ function createWishBook() {
 
 function addWishBook() {
   let wishlist = [];
-  wishlist = JSON.parse(localStorage.getItem('collection') || '[]');
+  wishlist = JSON.parse(localStorage.getItem('wishlist') || '[]');
   wishlist.push(newWishBook);
   wishlist.forEach((book, i) => {
     book.index = i + 1;
@@ -93,3 +92,19 @@ submitToWishlist.addEventListener('click', (e) => {
 });
 
 displayWishlist();
+
+wishList.addEventListener('click', (e) => {
+  e.preventDefault();
+  if (e.target.classList.contains('remove')) {
+    let wishlist = JSON.parse(localStorage.getItem('wishlist') || '[]');
+    wishlist = wishlist.filter(
+      (book) => book.index !== Number(e.target.id),
+    );
+    wishlist.forEach((book, i) => {
+      book.index = i + 1;
+    });
+    localStorage.setItem('wishlist', JSON.stringify(wishlist));
+    displayWishlist();
+  }
+
+})
