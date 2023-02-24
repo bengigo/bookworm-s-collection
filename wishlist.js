@@ -27,11 +27,7 @@ addToWishlist.addEventListener('click', () => {
   displayWishlistForm();
 });
 
-submitToWishlist.addEventListener('click', (e) => {
-  e.preventDefault();
-  createWishBook();
-  setTimeout(hideWishlistForm, 150);
-});
+
 
 function WishBook(title, author, publishYear, numberOfPages) {
   this.title = title;
@@ -76,3 +72,24 @@ function createWishBook() {
   console.log(newWishBook);
   return newWishBook;
 }
+
+function addWishBook() {
+  let wishlist = [];
+  wishlist = JSON.parse(localStorage.getItem('collection') || '[]');
+  wishlist.push(newWishBook);
+  wishlist.forEach((book, i) => {
+    book.index = i + 1;
+  });
+  localStorage.setItem('wishlist', JSON.stringify(wishlist));
+}
+
+
+submitToWishlist.addEventListener('click', (e) => {
+  e.preventDefault();
+  createWishBook();
+  addWishBook();
+  displayWishlist();
+  setTimeout(hideWishlistForm, 150);
+});
+
+displayWishlist();
