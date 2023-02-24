@@ -25,13 +25,9 @@ let newBook = {};
 let collection = [];
 collection = JSON.parse(localStorage.getItem('collection') || '[]');
 
-// when you click on collection link, collection container should be visible
-// and wishlist container should have display none
 collectionLink.addEventListener('click', () => {
   wishlistContainer.style.display = 'none';
   collectionContainer.style.display = 'flex';
-
-
 })
 
 function Book(title, author, publishYear, numberOfPages, status) {
@@ -70,7 +66,7 @@ function displayCollection() {
         type="checkbox" ${checkedStatus}><span class="slider" id="${book.index}"></span></label></p>
       </div>
       <div>
-        <p class="medium"><button class="remove" id="${book.index}">Remove</button></p>
+        <p<button class="remove" id="${book.index}">Remove</button>
       </div>
     </li>
     `;

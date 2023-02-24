@@ -1,26 +1,27 @@
 const wishlistLink = document.querySelector('#wishlist-link');
 const addToWishlist = document.querySelector('#add-wishlist');
 const wishlistForm = document.querySelector('#wishlist-form');
+// wish title
+const wishlistTitleInput = document.querySelector('#title-wishlist');
+// wish author
+const wishlistAuthorInput = document.querySelector('#author-wishlist');
+// wish year
+const wishlistYearInput = document.querySelector('#year-wishlist');
+// wish pages
+const wishlistPagesInput = document.querySelector('#pages-wishlist');
 const submitToWishlist = document.querySelector('#submit-wishlist');
 const wishlistContainer = document.querySelector('#wishlist-container');
+const wishList = document.querySelector('#wishlist');
+let newWishBook = {};
 
-// when you click on wishlist link, wishlist container shoud be visible and
-// collection container should have display none
+let wishlist = [];
+wishlist = JSON.parse(localStorage.getItem('wishlist') || '[]');
 
 wishlistLink.addEventListener('click', () => {
     alert('clicked to wishlist link');
-    // hide collection
     collectionContainer.style.display = 'none';
     wishlistContainer.style.display = 'flex';
-    // show collection
 })
-
-
-
-
-function displayWishlistForm() {
-  wishlistForm.classList.add('active');
-}
   
 function hideWishlistForm() {
   wishlistForm.classList.remove('active');
@@ -35,6 +36,36 @@ submitToWishlist.addEventListener('click', (e) => {
   setTimeout(hideWishlistForm, 150);
 });
 
+function WishBook(title, author, publishYear, numberOfPages) {
+  this.title = title;
+  this.author = author;
+  this.publishYear = publishYear;
+  this.numberOfPages = numberOfPages;
+  this.index = wishlist.length + 1;
+}
 
+function displayWishlist() {
+  wishList.innerHTML = '';
+  let wishlist = [];
+  wishlist = JSON.parse(localStorage.getItem('wishlist') || '[]');
+  wishlist.forEach((book) => {
+    wishList.innerHTML += `
+    <li class="card">
+      <div>
+        <p class="card-title">${book.title} by ${book.author}</p>
+      </div>
+      <div>
+        <p class="info">Publish year: ${book.publishYear}</p>
+        <p class="info"> Number of pages: ${book.numberOfPages}</p>
+      </div>
+      <div>
+        <button class="remove" id="${book.index}">Remove</button>
+      </div>
+    </li>
+    `;
+  });
+}
 
-console.log(collection);
+function displayWishlistForm() {
+  wishlistForm.classList.add('active');
+}

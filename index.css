@@ -179,6 +179,11 @@ nav li {
 #wishlist-container {
   display: none;
   background-color: gray;
+  height: 100%;
+  /* flex-direction: column;
+  align-items: center; */
+  overflow: scroll;
+
 }
 
 table {
