@@ -23,6 +23,10 @@ function hideWishlistForm() {
   wishlistForm.classList.remove('active');
 }
 
+function displayWishlistForm() {
+  wishlistForm.classList.add('active');
+}
+
 addToWishlist.addEventListener('click', () => {
   displayWishlistForm();
 });
@@ -61,10 +65,6 @@ function displayWishlist() {
   });
 }
 
-function displayWishlistForm() {
-  wishlistForm.classList.add('active');
-}
-
 function createWishBook() {
   const title = wishlistTitleInput.value;
   const author = wishlistAuthorInput.value;
@@ -84,7 +84,6 @@ function addWishBook() {
   });
   localStorage.setItem('wishlist', JSON.stringify(wishlist));
 }
-
 
 submitToWishlist.addEventListener('click', (e) => {
   e.preventDefault();
@@ -109,5 +108,4 @@ wishList.addEventListener('click', (e) => {
     localStorage.setItem('wishlist', JSON.stringify(wishlist));
     displayWishlist();
   }
-
-})
+});
