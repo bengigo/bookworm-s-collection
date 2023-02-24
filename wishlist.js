@@ -5,6 +5,7 @@ const wishlistTitleInput = document.querySelector('#title-wishlist');
 const wishlistAuthorInput = document.querySelector('#author-wishlist');
 const wishlistYearInput = document.querySelector('#year-wishlist');
 const wishlistPagesInput = document.querySelector('#pages-wishlist');
+const linkInput = document.querySelector('#purchase-link');
 const submitToWishlist = document.querySelector('#submit-wishlist');
 const wishlistContainer = document.querySelector('#wishlist-container');
 const wishList = document.querySelector('#wishlist');
@@ -26,13 +27,12 @@ addToWishlist.addEventListener('click', () => {
   displayWishlistForm();
 });
 
-
-
-function WishBook(title, author, publishYear, numberOfPages) {
+function WishBook(title, author, publishYear, numberOfPages, purchaseLink) {
   this.title = title;
   this.author = author;
   this.publishYear = publishYear;
   this.numberOfPages = numberOfPages;
+  this.purchaseLink = purchaseLink;
   this.index = wishlist.length + 1;
 }
 
@@ -51,6 +51,9 @@ function displayWishlist() {
         <p class="info"> Number of pages: ${book.numberOfPages}</p>
       </div>
       <div>
+      <a href="${book.purchaseLink}" target="_blank">Purchase</a>
+      </div>
+      <div>
         <button class="remove" id="${book.index}">Remove</button>
       </div>
     </li>
@@ -67,8 +70,8 @@ function createWishBook() {
   const author = wishlistAuthorInput.value;
   const publishYear = wishlistYearInput.value;
   const numberOfPages = wishlistPagesInput.value;
-  newWishBook = new WishBook(title, author, publishYear, numberOfPages);
-  console.log(newWishBook);
+  const linkToPurchase = linkInput.value;
+  newWishBook = new WishBook(title, author, publishYear, numberOfPages, linkToPurchase);
   return newWishBook;
 }
 
