@@ -16,6 +16,11 @@ body {
   display: flex;
 }
 
+
+
+
+
+
 aside {
   background-color: #614f89;
   width: 320px;
@@ -163,12 +168,17 @@ nav li {
   cursor: pointer;
 }
 
-.list-container {
+#collection-container {
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   overflow: scroll;
+}
+
+#wishlist-container {
+  display: none;
+  background-color: gray;
 }
 
 table {
@@ -212,9 +222,6 @@ table {
   color: #614f89;
 }
 
-#wishlist {
-  display: none;
-}
 
 /* The switch - the box around the slider */
 .switch {
@@ -271,3 +278,6 @@ input:checked + .slider::before {
   -ms-transform: translateX(26px);
   transform: translateX(26px);
 }
+
+
+

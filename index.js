@@ -1,7 +1,6 @@
+const collectionLink = document.querySelector('#collection-link');
 const addToCollection = document.querySelector('#add-collection');
-const addToWishlist = document.querySelector('#add-wishlist');
 const collectionForm = document.querySelector('#collection-form');
-const wishlistForm = document.querySelector('#wishlist-form');
 const collectionAuthorInput = document.querySelector('#author-collection');
 const collectionTitleInput = document.querySelector('#title-collection');
 const collectionYearInput = document.querySelector('#year-collection');
@@ -19,12 +18,21 @@ function statusCheck() {
   return status;
 }
 const submitToCollection = document.querySelector('#submit-collection');
-const submitToWishlist = document.querySelector('#submit-wishlist');
-const bookList = document.querySelector('.book-list');
+const collectionContainer = document.querySelector('#collection-container');
+const bookList = document.querySelector('#collection');
 let newBook = {};
 
 let collection = [];
 collection = JSON.parse(localStorage.getItem('collection') || '[]');
+
+// when you click on collection link, collection container should be visible
+// and wishlist container should have display none
+collectionLink.addEventListener('click', () => {
+  wishlistContainer.style.display = 'none';
+  collectionContainer.style.display = 'flex';
+
+
+})
 
 function Book(title, author, publishYear, numberOfPages, status) {
   this.title = title;
@@ -73,10 +81,6 @@ function displayCollectionForm() {
   collectionForm.classList.add('active');
 }
 
-function displayWishlistForm() {
-  wishlistForm.classList.add('active');
-}
-
 function createBook() {
   const author = collectionAuthorInput.value;
   const title = collectionTitleInput.value;
@@ -100,17 +104,10 @@ function hideCollectionForm() {
   collectionForm.classList.remove('active');
 }
 
-function hideWishlistForm() {
-  wishlistForm.classList.remove('active');
-}
-
 addToCollection.addEventListener('click', () => {
   displayCollectionForm();
 });
 
-addToWishlist.addEventListener('click', () => {
-  displayWishlistForm();
-});
 
 submitToCollection.addEventListener('click', (e) => {
   e.preventDefault();
@@ -123,11 +120,6 @@ submitToCollection.addEventListener('click', (e) => {
 });
 
 displayCollection();
-
-submitToWishlist.addEventListener('click', (e) => {
-  e.preventDefault();
-  setTimeout(hideWishlistForm, 150);
-});
 
 bookList.addEventListener('click', (e) => {
   e.preventDefault();
