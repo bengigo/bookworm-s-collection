@@ -143,5 +143,5 @@ bookList.addEventListener('click', (e) => {
   }
 });
 
-// if collectionContainer has flex display, bottom border of collection list should have a 
-//different color or border px should be more
+// if collectionContainer has flex display, bottom border of collection list should have a
+// different color or border px should be more
