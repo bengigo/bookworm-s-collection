@@ -9,24 +9,18 @@ const linkInput = document.querySelector('#purchase-link');
 const submitToWishlist = document.querySelector('#submit-wishlist');
 const wishlistContainer = document.querySelector('#wishlist-container');
 const wishList = document.querySelector('#wishlist');
-const collectionContainer = document.querySelector('#collection-container');
-
 let newWishBook = {};
 
 let wishlist = [];
 wishlist = JSON.parse(localStorage.getItem('wishlist') || '[]');
 
 wishlistLink.addEventListener('click', () => {
-  collectionContainer.style.display = 'none';
-  wishlistContainer.style.display = 'flex';
-});
-
+    collectionContainer.style.display = 'none';
+    wishlistContainer.style.display = 'flex';
+})
+  
 function hideWishlistForm() {
   wishlistForm.classList.remove('active');
-}
-
-function displayWishlistForm() {
-  wishlistForm.classList.add('active');
 }
 
 addToWishlist.addEventListener('click', () => {
@@ -67,6 +61,10 @@ function displayWishlist() {
   });
 }
 
+function displayWishlistForm() {
+  wishlistForm.classList.add('active');
+}
+
 function createWishBook() {
   const title = wishlistTitleInput.value;
   const author = wishlistAuthorInput.value;
@@ -86,6 +84,7 @@ function addWishBook() {
   });
   localStorage.setItem('wishlist', JSON.stringify(wishlist));
 }
+
 
 submitToWishlist.addEventListener('click', (e) => {
   e.preventDefault();
@@ -110,4 +109,5 @@ wishList.addEventListener('click', (e) => {
     localStorage.setItem('wishlist', JSON.stringify(wishlist));
     displayWishlist();
   }
-});
+
+})
