@@ -28,7 +28,7 @@ collection = JSON.parse(localStorage.getItem('collection') || '[]');
 collectionLink.addEventListener('click', () => {
   wishlistContainer.style.display = 'none';
   collectionContainer.style.display = 'flex';
-})
+});
 
 function Book(title, author, publishYear, numberOfPages, status) {
   this.title = title;
@@ -104,7 +104,6 @@ addToCollection.addEventListener('click', () => {
   displayCollectionForm();
 });
 
-
 submitToCollection.addEventListener('click', (e) => {
   e.preventDefault();
   // not applying a form validation to prevent empty input value submits
@@ -142,6 +141,5 @@ bookList.addEventListener('click', (e) => {
     displayCollection();
   }
 });
-
 
 // if collectionContainer has flex display, bottom border of collection list should have a different color or border px should be more

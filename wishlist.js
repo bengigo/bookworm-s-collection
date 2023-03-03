@@ -1,29 +1,29 @@
-const wishlistLink = document.querySelector("#wishlist-link");
-const addToWishlist = document.querySelector("#add-wishlist");
-const wishlistForm = document.querySelector("#wishlist-form");
-const wishlistTitleInput = document.querySelector("#title-wishlist");
-const wishlistAuthorInput = document.querySelector("#author-wishlist");
-const wishlistYearInput = document.querySelector("#year-wishlist");
-const wishlistPagesInput = document.querySelector("#pages-wishlist");
-const linkInput = document.querySelector("#purchase-link");
-const submitToWishlist = document.querySelector("#submit-wishlist");
-const wishlistContainer = document.querySelector("#wishlist-container");
-const wishList = document.querySelector("#wishlist");
+const wishlistLink = document.querySelector('#wishlist-link');
+const addToWishlist = document.querySelector('#add-wishlist');
+const wishlistForm = document.querySelector('#wishlist-form');
+const wishlistTitleInput = document.querySelector('#title-wishlist');
+const wishlistAuthorInput = document.querySelector('#author-wishlist');
+const wishlistYearInput = document.querySelector('#year-wishlist');
+const wishlistPagesInput = document.querySelector('#pages-wishlist');
+const linkInput = document.querySelector('#purchase-link');
+const submitToWishlist = document.querySelector('#submit-wishlist');
+const wishlistContainer = document.querySelector('#wishlist-container');
+const wishList = document.querySelector('#wishlist');
 let newWishBook = {};
 
 let wishlist = [];
-wishlist = JSON.parse(localStorage.getItem("wishlist") || "[]");
+wishlist = JSON.parse(localStorage.getItem('wishlist') || '[]');
 
-wishlistLink.addEventListener("click", () => {
-  collectionContainer.style.display = "none";
-  wishlistContainer.style.display = "flex";
+wishlistLink.addEventListener('click', () => {
+  collectionContainer.style.display = 'none';
+  wishlistContainer.style.display = 'flex';
 });
 
 function hideWishlistForm() {
-  wishlistForm.classList.remove("active");
+  wishlistForm.classList.remove('active');
 }
 
-addToWishlist.addEventListener("click", () => {
+addToWishlist.addEventListener('click', () => {
   displayWishlistForm();
 });
 
@@ -37,9 +37,9 @@ function WishBook(title, author, publishYear, numberOfPages, purchaseLink) {
 }
 
 function displayWishlist() {
-  wishList.innerHTML = "";
+  wishList.innerHTML = '';
   let wishlist = [];
-  wishlist = JSON.parse(localStorage.getItem("wishlist") || "[]");
+  wishlist = JSON.parse(localStorage.getItem('wishlist') || '[]');
   wishlist.forEach((book) => {
     wishList.innerHTML += `
     <li class="card">
@@ -63,7 +63,7 @@ function displayWishlist() {
 }
 
 function displayWishlistForm() {
-  wishlistForm.classList.add("active");
+  wishlistForm.classList.add('active');
 }
 
 function createWishBook() {
@@ -77,22 +77,22 @@ function createWishBook() {
     author,
     publishYear,
     numberOfPages,
-    linkToPurchase
+    linkToPurchase,
   );
   return newWishBook;
 }
 
 function addWishBook() {
   let wishlist = [];
-  wishlist = JSON.parse(localStorage.getItem("wishlist") || "[]");
+  wishlist = JSON.parse(localStorage.getItem('wishlist') || '[]');
   wishlist.push(newWishBook);
   wishlist.forEach((book, i) => {
     book.index = i + 1;
   });
-  localStorage.setItem("wishlist", JSON.stringify(wishlist));
+  localStorage.setItem('wishlist', JSON.stringify(wishlist));
 }
 
-submitToWishlist.addEventListener("click", (e) => {
+submitToWishlist.addEventListener('click', (e) => {
   e.preventDefault();
   createWishBook();
   addWishBook();
@@ -102,42 +102,42 @@ submitToWishlist.addEventListener("click", (e) => {
 
 displayWishlist();
 
-wishList.addEventListener("click", (e) => {
+wishList.addEventListener('click', (e) => {
   e.preventDefault();
-  if (e.target.classList.contains("remove")) {
-    let wishlist = JSON.parse(localStorage.getItem("wishlist") || "[]");
+  if (e.target.classList.contains('remove')) {
+    let wishlist = JSON.parse(localStorage.getItem('wishlist') || '[]');
     wishlist = wishlist.filter((book) => book.index !== Number(e.target.id));
     wishlist.forEach((book, i) => {
       book.index = i + 1;
     });
-    localStorage.setItem("wishlist", JSON.stringify(wishlist));
+    localStorage.setItem('wishlist', JSON.stringify(wishlist));
     displayWishlist();
   }
 });
 
-wishList.addEventListener("click", (e) => {
+wishList.addEventListener('click', (e) => {
   e.preventDefault();
-  if (e.target.tagName === "A") {
-    window.open(e.target.href, "_blank");
+  if (e.target.tagName === 'A') {
+    window.open(e.target.href, '_blank');
   }
 });
 
-wishList.addEventListener("click", (e) => {
+wishList.addEventListener('click', (e) => {
   e.preventDefault();
-  if (e.target.classList.contains("move")) {
-    let wishlist = JSON.parse(localStorage.getItem("wishlist") || "[]");
+  if (e.target.classList.contains('move')) {
+    let wishlist = JSON.parse(localStorage.getItem('wishlist') || '[]');
     wishlist = wishlist.filter((book) => book.index !== Number(e.target.id));
     wishlist.forEach((book, i) => {
       book.index = i + 1;
     });
-    localStorage.setItem("wishlist", JSON.stringify(wishlist));
+    localStorage.setItem('wishlist', JSON.stringify(wishlist));
     displayWishlist();
-    let collection = JSON.parse(localStorage.getItem("collection") || "[]");
+    const collection = JSON.parse(localStorage.getItem('collection') || '[]');
     collection.push(newWishBook);
     collection.forEach((book, i) => {
       book.index = i + 1;
     });
-    localStorage.setItem("collection", JSON.stringify(collection));
+    localStorage.setItem('collection', JSON.stringify(collection));
     displayCollection();
   }
 });
