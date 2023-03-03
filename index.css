@@ -16,11 +16,6 @@ body {
   display: flex;
 }
 
-
-
-
-
-
 aside {
   background-color: #614f89;
   width: 320px;
@@ -286,8 +281,6 @@ input:checked + .slider::before {
   -ms-transform: translateX(26px);
   transform: translateX(26px);
 }
-
-
 
 .move {
   padding: 5px 10px;
