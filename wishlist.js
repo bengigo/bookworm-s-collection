@@ -66,8 +66,6 @@ function displayWishlist() {
   });
 }
 
-
-
 function createWishBook() {
   const title = wishlistTitleInput.value;
   const author = wishlistAuthorInput.value;
