@@ -23,6 +23,10 @@ function hideWishlistForm() {
   wishlistForm.classList.remove('active');
 }
 
+function displayWishlistForm() {
+  wishlistForm.classList.add('active');
+}
+
 addToWishlist.addEventListener('click', () => {
   displayWishlistForm();
 });
@@ -62,9 +66,7 @@ function displayWishlist() {
   });
 }
 
-function displayWishlistForm() {
-  wishlistForm.classList.add('active');
-}
+
 
 function createWishBook() {
   const title = wishlistTitleInput.value;
