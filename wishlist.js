@@ -111,3 +111,10 @@ wishList.addEventListener('click', (e) => {
   }
 
 })
+
+wishList.addEventListener('click', (e) =>{
+  e.preventDefault();
+  if (e.target.tagName === 'A') {
+    window.open(e.target.href, '_blank');
+  }
+})
