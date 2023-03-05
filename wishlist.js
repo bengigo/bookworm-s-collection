@@ -1,6 +1,6 @@
 const wishlistLink = document.querySelector('#wishlist-link');
-const addToWishlist = document.querySelector('#add-wishlist');
-const wishlistForm = document.querySelector('#wishlist-form');
+// const addToWishlist = document.querySelector('#add-wishlist');
+// const wishlistForm = document.querySelector('#wishlist-form');
 const wishlistTitleInput = document.querySelector('#title-wishlist');
 const wishlistAuthorInput = document.querySelector('#author-wishlist');
 const wishlistYearInput = document.querySelector('#year-wishlist');
@@ -19,17 +19,17 @@ wishlistLink.addEventListener('click', () => {
   wishlistContainer.style.display = 'flex';
 });
 
-function hideWishlistForm() {
-  wishlistForm.classList.remove('active');
-}
+// function hideWishlistForm() {
+//   wishlistForm.classList.remove('active');
+// }
 
-function displayWishlistForm() {
-  wishlistForm.classList.add('active');
-}
+// function displayWishlistForm() {
+//   wishlistForm.classList.add('active');
+// }
 
-addToWishlist.addEventListener('click', () => {
-  displayWishlistForm();
-});
+// addToWishlist.addEventListener('click', () => {
+//   displayWishlistForm();
+// });
 
 function WishBook(title, author, publishYear, numberOfPages, purchaseLink) {
   this.title = title;
