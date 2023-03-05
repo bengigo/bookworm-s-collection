@@ -31,7 +31,7 @@ addToWishlist.addEventListener('click', () => {
   displayWishlistForm();
 });
 
-function WishBook(title, author, publishYear, numberOfPages, purchaseLink, status) {
+function WishBook(title, author, publishYear, numberOfPages, purchaseLink) {
   this.title = title;
   this.author = author;
   this.publishYear = publishYear;
