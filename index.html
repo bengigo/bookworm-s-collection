@@ -27,7 +27,7 @@
             </div>
             <div>
               <label for="e-book">Digital</label>
-              <input type="radio" id="not-read" name="status">
+              <input type="radio" id="not-read" name="book-type">
             </div>
           </div>
           <div id="status-check">
@@ -49,10 +49,11 @@
     <div class="dashboard-section">
       <button type="button" class="add" id="add-wishlist">Add to wishlist</button>
       <form id="wishlist-form">
-        <input class="field" type="text" id="title" name="title" placeholder="author">
-        <input class="field" type="text" id="author" name="author" placeholder="title">
-        <input class="field" type="text" id="year" name="year" placeholder="publish year">
-        <input class="field" type="text" id="pages" name="pages" placeholder="number of pages">
+        <input class="field" type="text" id="title-wishlist" name="title" placeholder="title">
+        <input class="field" type="text" id="author-wishlist" name="author" placeholder="author">
+        <input class="field" type="text" id="year-wishlist" name="year" placeholder="publish year">
+        <input class="field" type="text" id="pages-wishlist" name="pages" placeholder="number of pages">
+        <input class="field" type="url" id="purchase-link" name="purchase" placeholder="link to purchase">
         <button class="submit" type="button" id="submit-wishlist">Submit</button>
       </form>
     </div>
@@ -60,36 +61,27 @@
   <section>
     <nav>
       <ul>
-        <li>MY COLLECTION</li>
-        <li>MY wishlist</li>
+        <li id="collection-link">MY COLLECTION</li>
+        <li id="wishlist-link">MY WISHLIST</li>
       </ul>
     </nav>
 
-    <div id="collection" class="list-container">
-      <div>
-        <ul class="books book-list"></ul>
-      </div>
+    <div id="collection-container" class="list-container">
+      <!-- <div> -->
+        <ul id="collection" class="book-list"></ul>
+      <!-- </div> -->
     </div>
 
-    <div id="wishlist" class="list-container">
-      <div class="book">
-        <table>
-          <tr>
-            <th class="large">Author</th>
-            <th class="large">Title</th>
-            <th class="small">Publish Year</th>
-            <th class="small">Number of Pages</th>
-            <th class="small">toggle</th>
-            <th class="small">ebook?</th>
-            <th class="medium"></th>
-          </tr>
-          <tbody id="book-list"></tbody>
-        </table>
-      </div>
+    <div id="wishlist-container" class="list-container">
+      <!-- <div class="book"> -->
+        <ul id="wishlist" class="book-list">
+        </ul>
+      <!-- </div> -->
     </div>
 
   </section>
   <script src="index.js"></script>
+  <script src="wishlist.js"></script>
 </body>
 
 </html>

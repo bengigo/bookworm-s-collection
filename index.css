@@ -163,12 +163,24 @@ nav li {
   cursor: pointer;
 }
 
-.list-container {
+#collection-container {
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   overflow: scroll;
+}
+
+#wishlist-container {
+  display: none;
+  height: 100%;
+  overflow: scroll;
+}
+
+#wishlist-container.active {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 table {
@@ -210,10 +222,7 @@ table {
   background-color: #a3d4b5;
   border-radius: 30px;
   color: #614f89;
-}
-
-#wishlist {
-  display: none;
+  margin: 0 10px;
 }
 
 /* The switch - the box around the slider */
@@ -270,4 +279,13 @@ input:checked + .slider::before {
   -webkit-transform: translateX(26px);
   -ms-transform: translateX(26px);
   transform: translateX(26px);
+}
+
+.move {
+  padding: 5px 10px;
+  border: none;
+  background-color: #a3d4b5;
+  border-radius: 30px;
+  color: #614f89;
+  margin: 0 10px;
 }
