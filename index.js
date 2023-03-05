@@ -1,5 +1,5 @@
 const collectionLink = document.querySelector('#collection-link');
-const addToCollection = document.querySelector('#add-collection');
+// const addToCollection = document.querySelector('#add-collection');
 const collectionForm = document.querySelector('#collection-form');
 const collectionAuthorInput = document.querySelector('#author-collection');
 const collectionTitleInput = document.querySelector('#title-collection');
@@ -73,9 +73,9 @@ function displayCollection() {
   });
 }
 
-function displayCollectionForm() {
-  collectionForm.classList.add('active');
-}
+// function displayCollectionForm() {
+//   collectionForm.classList.add('active');
+// }
 
 function createBook() {
   const author = collectionAuthorInput.value;
@@ -96,13 +96,13 @@ function addCollectionBook() {
   localStorage.setItem('collection', JSON.stringify(collection));
 }
 
-function hideCollectionForm() {
-  collectionForm.classList.remove('active');
-}
+// function hideCollectionForm() {
+//   collectionForm.classList.remove('active');
+// }
 
-addToCollection.addEventListener('click', () => {
-  displayCollectionForm();
-});
+// addToCollection.addEventListener('click', () => {
+//   displayCollectionForm();
+// });
 
 submitToCollection.addEventListener('click', (e) => {
   e.preventDefault();
@@ -111,7 +111,7 @@ submitToCollection.addEventListener('click', (e) => {
   createBook();
   addCollectionBook();
   displayCollection();
-  setTimeout(hideCollectionForm, 150);
+  // setTimeout(hideCollectionForm, 150);
 });
 
 displayCollection();

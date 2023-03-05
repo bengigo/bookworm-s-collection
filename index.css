@@ -100,11 +100,9 @@ form div {
   padding: 10px 15px;
 }
 
-#collection-form {
-  display: none;
-}
 
-#collection-form.active {
+
+#collection-form {
   display: flex;
   flex-direction: column;
 }
