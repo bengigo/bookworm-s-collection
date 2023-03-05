@@ -1,5 +1,4 @@
 const collectionLink = document.querySelector('#collection-link');
-const collectionForm = document.querySelector('#collection-form');
 const collectionAuthorInput = document.querySelector('#author-collection');
 const collectionTitleInput = document.querySelector('#title-collection');
 const collectionYearInput = document.querySelector('#year-collection');
@@ -90,7 +89,6 @@ function addCollectionBook() {
   });
   localStorage.setItem('collection', JSON.stringify(collection));
 }
-
 
 submitToCollection.addEventListener('click', (e) => {
   e.preventDefault();
