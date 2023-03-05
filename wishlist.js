@@ -31,13 +31,14 @@ addToWishlist.addEventListener('click', () => {
   displayWishlistForm();
 });
 
-function WishBook(title, author, publishYear, numberOfPages, purchaseLink) {
+function WishBook(title, author, publishYear, numberOfPages, purchaseLink, status) {
   this.title = title;
   this.author = author;
   this.publishYear = publishYear;
   this.numberOfPages = numberOfPages;
   this.purchaseLink = purchaseLink;
   this.index = wishlist.length + 1;
+  this.status = 'Not read';
 }
 
 function displayWishlist() {
