@@ -275,7 +275,7 @@ table {
 }
 
 input:checked + .slider {
-  background-color: #000;
+  background-color: #332f2f;
 }
 
 input:focus + .slider {
