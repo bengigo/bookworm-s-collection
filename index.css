@@ -1,5 +1,3 @@
-/*   like this color #233142 */
-
 *,
 *::before,
 *::after {
@@ -130,31 +128,30 @@ section {
 }
 
 nav {
-  /* border: 1px solid; */
   padding: 25px;
-
-  /* background-color: #233142; */
-  width: 50vw;
+  align-self: flex-start;
 }
 
 nav ul {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
   list-style-type: none;
 }
 
-li {
-  display: flex;
-  align-items: center;
-  margin: 10px;
+nav li {
+  padding: 5px 15px 5px 0;
+  cursor: pointer;
+  border-right: 1px solid;
 }
 
-nav li {
-  color: #614f89;
-  border-bottom: 2px double #3f6d50;
-  padding: 5px;
-  cursor: pointer;
+nav li:hover {
+  text-decoration: underline;
+}
+
+nav li:last-child {
+  border-right: none;
+  padding-left: 15px
 }
 
 #collection-container {
@@ -189,6 +186,7 @@ table {
   width: calc(100vw - 300px);
   align-items: flex-start;
   border-bottom: 1px solid;
+  margin: 10px;
 }
 
 .card-title {
