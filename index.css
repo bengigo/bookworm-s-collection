@@ -9,6 +9,7 @@
   padding: 0;
   font-size: 20px;
   font-family: "Chillax", sans-serif;
+
   /* color: #233142; */
 }
 
@@ -189,12 +190,13 @@ table {
   border-bottom: 1px solid;
 }
 
-
 .card-title {
   /* font-size: 22px; */
+
   /* text-shadow: 5px 5px 10px rgba(97, 79, 137, 0.4); */
+
   /* color: #614f89; */
-  color: black
+  color: black;
   text-align: left;
 }
 
@@ -293,4 +295,3 @@ input:checked + .slider::before {
   color: #614f89;
   margin: 0 10px;
 }
-
