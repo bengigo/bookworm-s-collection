@@ -48,17 +48,15 @@ function displayWishlist() {
   wishlist.forEach((book) => {
     wishList.innerHTML += `
     <li class="card">
-      <div>
+      
         <p class="card-title">${book.title} by ${book.author}</p>
-      </div>
-      <div>
+      <div class="details">
         <p class="info">Publish year: ${book.publishYear}</p>
         <p class="info"> Number of pages: ${book.numberOfPages}</p>
-      </div>
-      <div>
-      <a href="${book.purchaseLink}" target="_blank">Purchase</a>
-      </div>
-      <div>
+      
+      
+        <a class="purchase" href="${book.purchaseLink}" target="_blank">Purchase</a>
+      
         <button class="move" id="${book.index}">Add to collection</button>
         <button class="remove" id="${book.index}">Remove</button>
       </div>
