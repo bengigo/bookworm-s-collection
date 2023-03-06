@@ -9,7 +9,7 @@
   padding: 0;
   font-size: 20px;
   font-family: "Chillax", sans-serif;
-  color: #233142;
+  /* color: #233142; */
 }
 
 body {
@@ -77,12 +77,12 @@ form div {
   align-items: center;
 }
 
-.card div {
-  padding: 5px 17px;
+.details {
+  padding: 5px 0;
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 #checks div {
@@ -182,42 +182,54 @@ table {
 
 .card {
   padding: 10px 5px;
-  box-shadow: inset 3px 1px 20px 16px rgba(163, 212, 181, 0.2);
+  display: flex;
+  flex-direction: column;
+  width: calc(100vw - 300px);
+  align-items: flex-start;
+  border-bottom: 1px solid;
 }
+
 
 .card-title {
-  font-size: 22px;
-  text-shadow: 5px 5px 10px rgba(97, 79, 137, 0.4);
-  color: #614f89;
+  /* font-size: 22px; */
+  /* text-shadow: 5px 5px 10px rgba(97, 79, 137, 0.4); */
+  /* color: #614f89; */
+  color: black
+  text-align: left;
 }
 
-.card div p {
+/* .card div p {
   padding: 0 10px;
-}
+} */
+
+/* .card p {
+  padding: 0 10px;
+} */
 
 .info {
   font-size: 17px;
 }
 
-.book-list li {
+.status {
+  width: 186px;
   display: flex;
-  flex-direction: column;
-  overflow: scroll;
-  scroll-behavior: smooth;
-  width: calc(100vw - 300px);
-  margin-bottom: 80px;
+  align-items: center;
 }
 
 .remove {
   padding: 5px 10px;
   border: none;
-  background-color: #a3d4b5;
+  background-color: #000;
   border-radius: 30px;
-  color: #614f89;
+  color: #fff;
   margin: 0 10px;
 }
 
 /* The switch - the box around the slider */
+.switch-input {
+  margin-right: 5px;
+}
+
 .switch {
   position: relative;
   display: inline-block;
@@ -260,7 +272,7 @@ table {
 }
 
 input:checked + .slider {
-  background-color: #a3d4b5;
+  background-color: #000;
 }
 
 input:focus + .slider {
@@ -281,3 +293,4 @@ input:checked + .slider::before {
   color: #614f89;
   margin: 0 10px;
 }
+
