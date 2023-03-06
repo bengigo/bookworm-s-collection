@@ -50,21 +50,15 @@ function displayCollection() {
     }
     bookList.innerHTML += `
     <li class="card">
-      <div>
-        <p class="card-title">${book.title} by ${book.author}</p>
-      </div>
+      <p class="card-title">${book.title} by ${book.author}</p>
       <div>
         <p class="info">Publish year: ${book.publishYear}</p>
         <p class="info"> Number of pages: ${book.numberOfPages}</p>
-      </div>
-      <div>
         <p>ebook?</p>
         <p>${book.status}</p>
         <p class="switch-input small"><label class="switch"><input class="switch-input"
-        type="checkbox" ${checkedStatus}><span class="slider" id="${book.index}"></span></label></p>
-      </div>
-      <div>
-        <p<button class="remove" id="${book.index}">Remove</button>
+        type="checkbox" ${checkedStatus}><span class="slider" id="${book.index}"></span></label></p>      
+        <button class="remove" id="${book.index}">Remove</button>
       </div>
     </li>
     `;
