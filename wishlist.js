@@ -43,10 +43,10 @@ function displayWishlist() {
         <p class="info"> Number of pages: ${book.numberOfPages}</p>
       
       
-        <a class="purchase" href="${book.purchaseLink}" target="_blank">Purchase</a>
+        <a class="purchase info" href="${book.purchaseLink}" target="_blank">Purchase</a>
       
-        <button class="move" id="${book.index}">Add to collection</button>
-        <button class="remove" id="${book.index}">Remove</button>
+        <button class="move info" id="${book.index}">Add to collection</button>
+        <button class="remove info" id="${book.index}">Remove</button>
       </div>
     </li>
     `;

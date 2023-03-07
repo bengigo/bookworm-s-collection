@@ -69,14 +69,14 @@ function displayCollection() {
       <div class="details">
         <p class="info">Publish year: ${book.publishYear}</p>
         <p class="info"> Number of pages: ${book.numberOfPages}</p>      
-        <p>${book.type}</p>
+        <p class="info">${book.type}</p>
         <div class="status">
-          <p class="switch-input"><label class="switch"><input class="switch-input"
+          <p class="switch-input info"><label class="switch"><input class="switch-input"
         type="checkbox" ${checkedStatus}><span class="slider" id="${book.index}"></span></label></p>
-        <p>${book.status}</p>
+        <p class="info">${book.status}</p>
 
         </div>       
-        <button class="remove" id="${book.index}">Remove</button>
+        <button class="remove info" id="${book.index}">Remove</button>
       </div>
     </li>
     `;
