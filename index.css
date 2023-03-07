@@ -149,9 +149,21 @@ nav li:hover {
   text-decoration: underline;
 }
 
-nav li:last-child {
+#collection-link {
+  text-decoration: underline;
+}
+
+#collection-link.passive {
+  text-decoration: none;
+}
+
+#wishlist-link {
   border-right: none;
-  padding-left: 15px
+  padding-left: 15px;
+}
+
+#wishlist-link.active {
+  text-decoration: underline;
 }
 
 #collection-container {

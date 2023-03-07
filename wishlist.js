@@ -17,6 +17,8 @@ wishlist = JSON.parse(localStorage.getItem('wishlist') || '[]');
 wishlistLink.addEventListener('click', () => {
   collectionContainer.style.display = 'none';
   wishlistContainer.style.display = 'flex';
+  collectionLink.classList.toggle('passive');
+  wishlistLink.classList.toggle('active');
 });
 
 // function hideWishlistForm() {

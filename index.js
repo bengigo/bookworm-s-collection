@@ -26,6 +26,8 @@ collection = JSON.parse(localStorage.getItem('collection') || '[]');
 collectionLink.addEventListener('click', () => {
   wishlistContainer.style.display = 'none';
   collectionContainer.style.display = 'flex';
+  collectionLink.classList.toggle('passive');
+  wishlistLink.classList.toggle('active');
 });
 
 function Book(title, author, publishYear, numberOfPages, status) {
