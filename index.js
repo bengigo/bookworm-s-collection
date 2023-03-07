@@ -15,6 +15,18 @@ function statusCheck() {
   }
   return status;
 }
+const printedCheck = document.querySelector('#printed');
+const digitalCheck = document.querySelector('#digital');
+let type = '';
+function typeCheck() {
+  if (printedCheck.checked) {
+    type = 'Printed';
+  }
+  if (digitalCheck.checked) {
+    type = 'E-book';
+  }
+  return type;
+}
 const submitToCollection = document.querySelector('#submit-collection');
 const collectionContainer = document.querySelector('#collection-container');
 const bookList = document.querySelector('#collection');
@@ -30,11 +42,12 @@ collectionLink.addEventListener('click', () => {
   wishlistLink.classList.toggle('active');
 });
 
-function Book(title, author, publishYear, numberOfPages, status) {
+function Book(title, author, publishYear, numberOfPages, type, status) {
   this.title = title;
   this.author = author;
   this.publishYear = publishYear;
   this.numberOfPages = numberOfPages;
+  this.type = type;
   this.status = status;
   this.index = collection.length + 1;
 }
@@ -56,7 +69,7 @@ function displayCollection() {
       <div class="details">
         <p class="info">Publish year: ${book.publishYear}</p>
         <p class="info"> Number of pages: ${book.numberOfPages}</p>      
-        <p>ebook?</p>
+        <p>${book.type}</p>
         <div class="status">
           <p class="switch-input"><label class="switch"><input class="switch-input"
         type="checkbox" ${checkedStatus}><span class="slider" id="${book.index}"></span></label></p>
@@ -75,7 +88,7 @@ function createBook() {
   const title = collectionTitleInput.value;
   const publishYear = collectionYearInput.value;
   const numberOfPages = collectionPagesInput.value;
-  newBook = new Book(title, author, publishYear, numberOfPages, statusCheck());
+  newBook = new Book(title, author, publishYear, numberOfPages, typeCheck(), statusCheck());
   return newBook;
 }
 
