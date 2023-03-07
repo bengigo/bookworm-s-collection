@@ -308,7 +308,7 @@ input:checked + .slider::before {
 }
 
 .purchase {
-  color: #000
+  color: #000;
 }
 
 .purchase:hover {
