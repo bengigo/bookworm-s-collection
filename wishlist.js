@@ -1,6 +1,4 @@
 const wishlistLink = document.querySelector('#wishlist-link');
-const addToWishlist = document.querySelector('#add-wishlist');
-const wishlistForm = document.querySelector('#wishlist-form');
 const wishlistTitleInput = document.querySelector('#title-wishlist');
 const wishlistAuthorInput = document.querySelector('#author-wishlist');
 const wishlistYearInput = document.querySelector('#year-wishlist');
@@ -17,18 +15,8 @@ wishlist = JSON.parse(localStorage.getItem('wishlist') || '[]');
 wishlistLink.addEventListener('click', () => {
   collectionContainer.style.display = 'none';
   wishlistContainer.style.display = 'flex';
-});
-
-function hideWishlistForm() {
-  wishlistForm.classList.remove('active');
-}
-
-function displayWishlistForm() {
-  wishlistForm.classList.add('active');
-}
-
-addToWishlist.addEventListener('click', () => {
-  displayWishlistForm();
+  collectionLink.classList.toggle('passive');
+  wishlistLink.classList.toggle('active');
 });
 
 function WishBook(title, author, publishYear, numberOfPages, purchaseLink) {
@@ -48,19 +36,17 @@ function displayWishlist() {
   wishlist.forEach((book) => {
     wishList.innerHTML += `
     <li class="card">
-      <div>
+      
         <p class="card-title">${book.title} by ${book.author}</p>
-      </div>
-      <div>
+      <div class="details">
         <p class="info">Publish year: ${book.publishYear}</p>
         <p class="info"> Number of pages: ${book.numberOfPages}</p>
-      </div>
-      <div>
-      <a href="${book.purchaseLink}" target="_blank">Purchase</a>
-      </div>
-      <div>
-        <button class="move" id="${book.index}">Add to collection</button>
-        <button class="remove" id="${book.index}">Remove</button>
+      
+      
+        <a class="purchase info" href="${book.purchaseLink}" target="_blank">Purchase</a>
+      
+        <button class="move info" id="${book.index}">Add to collection</button>
+        <button class="remove info" id="${book.index}">Remove</button>
       </div>
     </li>
     `;

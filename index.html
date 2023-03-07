@@ -13,7 +13,7 @@
 <body>
   <aside>
     <div class="dashboard-section">
-      <button type="button" class="add" id="add-collection">Add to collection</button>
+      <div type="button" class="add" id="add-collection">Add to collection</div>
       <form id="collection-form">
         <input class="field" type="text" id="title-collection" name="title" placeholder="title">
         <input class="field" type="text" id="author-collection" name="author" placeholder="author">
@@ -27,7 +27,7 @@
             </div>
             <div>
               <label for="e-book">Digital</label>
-              <input type="radio" id="not-read" name="book-type">
+              <input type="radio" id="digital" name="book-type">
             </div>
           </div>
           <div id="status-check">
@@ -47,7 +47,7 @@
     </div>
 
     <div class="dashboard-section">
-      <button type="button" class="add" id="add-wishlist">Add to wishlist</button>
+      <div type="button" class="add" id="add-wishlist">Add to wishlist</div>
       <form id="wishlist-form">
         <input class="field" type="text" id="title-wishlist" name="title" placeholder="title">
         <input class="field" type="text" id="author-wishlist" name="author" placeholder="author">
@@ -67,16 +67,12 @@
     </nav>
 
     <div id="collection-container" class="list-container">
-      <!-- <div> -->
         <ul id="collection" class="book-list"></ul>
-      <!-- </div> -->
     </div>
 
     <div id="wishlist-container" class="list-container">
-      <!-- <div class="book"> -->
         <ul id="wishlist" class="book-list">
         </ul>
-      <!-- </div> -->
     </div>
 
   </section>

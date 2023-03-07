@@ -1,6 +1,4 @@
 const collectionLink = document.querySelector('#collection-link');
-const addToCollection = document.querySelector('#add-collection');
-const collectionForm = document.querySelector('#collection-form');
 const collectionAuthorInput = document.querySelector('#author-collection');
 const collectionTitleInput = document.querySelector('#title-collection');
 const collectionYearInput = document.querySelector('#year-collection');
@@ -17,6 +15,18 @@ function statusCheck() {
   }
   return status;
 }
+const printedCheck = document.querySelector('#printed');
+const digitalCheck = document.querySelector('#digital');
+let type = '';
+function typeCheck() {
+  if (printedCheck.checked) {
+    type = 'Printed';
+  }
+  if (digitalCheck.checked) {
+    type = 'E-book';
+  }
+  return type;
+}
 const submitToCollection = document.querySelector('#submit-collection');
 const collectionContainer = document.querySelector('#collection-container');
 const bookList = document.querySelector('#collection');
@@ -28,13 +38,16 @@ collection = JSON.parse(localStorage.getItem('collection') || '[]');
 collectionLink.addEventListener('click', () => {
   wishlistContainer.style.display = 'none';
   collectionContainer.style.display = 'flex';
+  collectionLink.classList.toggle('passive');
+  wishlistLink.classList.toggle('active');
 });
 
-function Book(title, author, publishYear, numberOfPages, status) {
+function Book(title, author, publishYear, numberOfPages, type, status) {
   this.title = title;
   this.author = author;
   this.publishYear = publishYear;
   this.numberOfPages = numberOfPages;
+  this.type = type;
   this.status = status;
   this.index = collection.length + 1;
 }
@@ -52,29 +65,22 @@ function displayCollection() {
     }
     bookList.innerHTML += `
     <li class="card">
-      <div>
-        <p class="card-title">${book.title} by ${book.author}</p>
-      </div>
-      <div>
+      <p class="card-title">${book.title} by ${book.author}</p>
+      <div class="details">
         <p class="info">Publish year: ${book.publishYear}</p>
-        <p class="info"> Number of pages: ${book.numberOfPages}</p>
-      </div>
-      <div>
-        <p>ebook?</p>
-        <p>${book.status}</p>
-        <p class="switch-input small"><label class="switch"><input class="switch-input"
+        <p class="info"> Number of pages: ${book.numberOfPages}</p>      
+        <p class="info">${book.type}</p>
+        <div class="status">
+          <p class="switch-input info"><label class="switch"><input class="switch-input"
         type="checkbox" ${checkedStatus}><span class="slider" id="${book.index}"></span></label></p>
-      </div>
-      <div>
-        <p<button class="remove" id="${book.index}">Remove</button>
+        <p class="info">${book.status}</p>
+
+        </div>       
+        <button class="remove info" id="${book.index}">Remove</button>
       </div>
     </li>
     `;
   });
-}
-
-function displayCollectionForm() {
-  collectionForm.classList.add('active');
 }
 
 function createBook() {
@@ -82,7 +88,7 @@ function createBook() {
   const title = collectionTitleInput.value;
   const publishYear = collectionYearInput.value;
   const numberOfPages = collectionPagesInput.value;
-  newBook = new Book(title, author, publishYear, numberOfPages, statusCheck());
+  newBook = new Book(title, author, publishYear, numberOfPages, typeCheck(), statusCheck());
   return newBook;
 }
 
@@ -96,14 +102,6 @@ function addCollectionBook() {
   localStorage.setItem('collection', JSON.stringify(collection));
 }
 
-function hideCollectionForm() {
-  collectionForm.classList.remove('active');
-}
-
-addToCollection.addEventListener('click', () => {
-  displayCollectionForm();
-});
-
 submitToCollection.addEventListener('click', (e) => {
   e.preventDefault();
   // not applying a form validation to prevent empty input value submits
@@ -111,7 +109,6 @@ submitToCollection.addEventListener('click', (e) => {
   createBook();
   addCollectionBook();
   displayCollection();
-  setTimeout(hideCollectionForm, 150);
 });
 
 displayCollection();

@@ -1,5 +1,3 @@
-/*   like this color #233142 */
-
 *,
 *::before,
 *::after {
@@ -9,7 +7,6 @@
   padding: 0;
   font-size: 20px;
   font-family: "Chillax", sans-serif;
-  color: #233142;
 }
 
 body {
@@ -17,7 +14,7 @@ body {
 }
 
 aside {
-  background-color: #614f89;
+  background-color: #332f2f;
   width: 320px;
   height: 100vh;
   display: flex;
@@ -36,10 +33,12 @@ aside {
 
 .add {
   height: 50px;
-  border: none;
   margin-bottom: 5px;
-  background-color: #fea4b9;
-  color: #3f6d50;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #545e6c;
 }
 
 .field {
@@ -48,6 +47,7 @@ aside {
 
 ::placeholder {
   padding: 1px 3px;
+  color: #233142;
 }
 
 #checks {
@@ -77,12 +77,12 @@ form div {
   align-items: center;
 }
 
-.card div {
-  padding: 5px 17px;
+.details {
+  padding: 5px 0;
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 #checks div {
@@ -94,26 +94,18 @@ form div {
 
 .submit {
   align-self: center;
-  background-color: #fea4b9;
-  border: none;
-  color: #3f6d50;
+  color: #fff;
   padding: 10px 15px;
+  background-color: #545e6c;
+  border: none;
 }
 
 #collection-form {
-  display: none;
-}
-
-#collection-form.active {
   display: flex;
   flex-direction: column;
 }
 
 #wishlist-form {
-  display: none;
-}
-
-#wishlist-form.active {
   display: flex;
   flex-direction: column;
 }
@@ -136,31 +128,42 @@ section {
 }
 
 nav {
-  /* border: 1px solid; */
   padding: 25px;
-
-  /* background-color: #233142; */
-  width: 50vw;
+  align-self: flex-start;
 }
 
 nav ul {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
   list-style-type: none;
 }
 
-li {
-  display: flex;
-  align-items: center;
-  margin: 10px;
+nav li {
+  padding: 5px 15px 5px 0;
+  cursor: pointer;
+  border-right: 1px solid;
 }
 
-nav li {
-  color: #614f89;
-  border-bottom: 2px double #3f6d50;
-  padding: 5px;
-  cursor: pointer;
+nav li:hover {
+  text-decoration: underline;
+}
+
+#collection-link {
+  text-decoration: underline;
+}
+
+#collection-link.passive {
+  text-decoration: none;
+}
+
+#wishlist-link {
+  border-right: none;
+  padding-left: 15px;
+}
+
+#wishlist-link.active {
+  text-decoration: underline;
 }
 
 #collection-container {
@@ -190,42 +193,43 @@ table {
 
 .card {
   padding: 10px 5px;
-  box-shadow: inset 3px 1px 20px 16px rgba(163, 212, 181, 0.2);
+  display: flex;
+  flex-direction: column;
+  width: calc(100vw - 300px);
+  align-items: flex-start;
+  border-bottom: 1px solid;
+  margin: 10px;
 }
 
 .card-title {
-  font-size: 22px;
-  text-shadow: 5px 5px 10px rgba(97, 79, 137, 0.4);
-  color: #614f89;
-}
-
-.card div p {
-  padding: 0 10px;
+  color: black;
+  text-align: left;
 }
 
 .info {
   font-size: 17px;
 }
 
-.book-list li {
+.status {
+  width: 186px;
   display: flex;
-  flex-direction: column;
-  overflow: scroll;
-  scroll-behavior: smooth;
-  width: calc(100vw - 300px);
-  margin-bottom: 80px;
+  align-items: center;
 }
 
 .remove {
   padding: 5px 10px;
   border: none;
-  background-color: #a3d4b5;
+  background-color: #332f2f;
   border-radius: 30px;
-  color: #614f89;
+  color: #fff;
   margin: 0 10px;
 }
 
 /* The switch - the box around the slider */
+.switch-input {
+  margin-right: 5px;
+}
+
 .switch {
   position: relative;
   display: inline-block;
@@ -268,7 +272,7 @@ table {
 }
 
 input:checked + .slider {
-  background-color: #a3d4b5;
+  background-color: #332f2f;
 }
 
 input:focus + .slider {
@@ -284,8 +288,16 @@ input:checked + .slider::before {
 .move {
   padding: 5px 10px;
   border: none;
-  background-color: #a3d4b5;
   border-radius: 30px;
-  color: #614f89;
   margin: 0 10px;
+  background-color: #332f2f;
+  color: #fff;
+}
+
+.purchase {
+  color: #000;
+}
+
+.purchase:hover {
+  color: #545e6c;
 }
