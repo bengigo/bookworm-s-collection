@@ -202,22 +202,9 @@ table {
 }
 
 .card-title {
-  /* font-size: 22px; */
-
-  /* text-shadow: 5px 5px 10px rgba(97, 79, 137, 0.4); */
-
-  /* color: #614f89; */
   color: black;
   text-align: left;
 }
-
-/* .card div p {
-  padding: 0 10px;
-} */
-
-/* .card p {
-  padding: 0 10px;
-} */
 
 .info {
   font-size: 17px;
