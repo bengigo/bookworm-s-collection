@@ -85,7 +85,7 @@ class Book {
   }
 
   // adding to collection
-  add() {
+  static add() {
     let collection = [];
     const title = collectionTitleInput.value;
     const author = collectionAuthorInput.value;
@@ -105,6 +105,7 @@ class Book {
       book.index = i + 1;
     });
     localStorage.setItem("collection", JSON.stringify(collection));
+    Book.display();
   }
 
   // deleting from collection
@@ -114,9 +115,7 @@ submitToCollection.addEventListener("click", (e) => {
   e.preventDefault();
   // not applying a form validation to prevent empty input value submits
   // because input fields will be converted to 'required'
-  createBook();
-  addCollectionBook();
-  displayCollection();
+  Book.add();
 });
 
 // displayCollection();
@@ -132,7 +131,6 @@ bookList.addEventListener("click", (e) => {
       book.index = i + 1;
     });
     localStorage.setItem("collection", JSON.stringify(collection));
-    displayCollection();
   }
   if (e.target.classList.contains("slider")) {
     const collection = JSON.parse(localStorage.getItem("collection") || "[]");
