@@ -108,6 +108,26 @@ class Book {
     Book.display();
   }
 
+  // changing status
+  static changeStatus() {
+    bookList.addEventListener("click", (e) => {
+      e.preventDefault();
+      if (e.target.classList.contains("slider")) {
+        const collection = JSON.parse(
+          localStorage.getItem("collection") || "[]"
+        );
+        const objIndex = Number(e.target.id);
+        if (collection[objIndex - 1].status === "Read") {
+          collection[objIndex - 1].status = "Not read";
+        } else {
+          collection[objIndex - 1].status = "Read";
+        }
+        localStorage.setItem("collection", JSON.stringify(collection));
+        Book.display();
+      }
+    });
+  }
+
   // deleting from collection
 }
 
@@ -117,8 +137,6 @@ submitToCollection.addEventListener("click", (e) => {
   // because input fields will be converted to 'required'
   Book.add();
 });
-
-// displayCollection();
 
 bookList.addEventListener("click", (e) => {
   e.preventDefault();
@@ -132,18 +150,7 @@ bookList.addEventListener("click", (e) => {
     });
     localStorage.setItem("collection", JSON.stringify(collection));
   }
-  if (e.target.classList.contains("slider")) {
-    const collection = JSON.parse(localStorage.getItem("collection") || "[]");
-    const objIndex = Number(e.target.id);
-    if (collection[objIndex - 1].status === "Read") {
-      collection[objIndex - 1].status = "Not read";
-    } else {
-      collection[objIndex - 1].status = "Read";
-    }
-    localStorage.setItem("collection", JSON.stringify(collection));
-    displayCollection();
-  }
 });
 
-
 Book.display();
+Book.changeStatus();
