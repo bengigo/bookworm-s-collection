@@ -30,7 +30,7 @@ function typeCheck() {
 const submitToCollection = document.querySelector('#submit-collection');
 const collectionContainer = document.querySelector('#collection-container');
 const bookList = document.querySelector('#collection');
-let newBook = {};
+// let newBook = {};
 
 let collection = [];
 collection = JSON.parse(localStorage.getItem('collection') || '[]');
@@ -59,7 +59,30 @@ class Book {
     this.numberOfPages = numberOfPages;
     this.type = type;
     this.status = status;
+    this.index = collection.length + 1;
   }
+
+  // displaying collection
+  
+
+  // adding to collection
+  add() {
+    let collection = [];
+    const title = collectionTitleInput.value;
+    const author = collectionAuthorInput.value;
+    const publishYear = collectionYearInput.value;
+    const numberOfPages = collectionPagesInput.value;
+    const newBook = new Book(title, author, publishYear, numberOfPages, typeCheck(), statusCheck());
+    collection = JSON.parse(localStorage.getItem('collection') || '[]');
+    collection.push(newBook);
+    collection.forEach((book, i) => {
+      book.index = i + 1;
+    });
+    localStorage.setItem('collection', JSON.stringify(collection));    
+  }
+
+  // deleting from collection
+
 }
 
 
@@ -94,24 +117,24 @@ function displayCollection() {
   });
 }
 
-function createBook() {
-  const author = collectionAuthorInput.value;
-  const title = collectionTitleInput.value;
-  const publishYear = collectionYearInput.value;
-  const numberOfPages = collectionPagesInput.value;
-  newBook = new Book(title, author, publishYear, numberOfPages, typeCheck(), statusCheck());
-  return newBook;
-}
+// function createBook() {
+//   const author = collectionAuthorInput.value;
+//   const title = collectionTitleInput.value;
+//   const publishYear = collectionYearInput.value;
+//   const numberOfPages = collectionPagesInput.value;
+//   newBook = new Book(title, author, publishYear, numberOfPages, typeCheck(), statusCheck());
+//   return newBook;
+// }
 
-function addCollectionBook() {
-  let collection = [];
-  collection = JSON.parse(localStorage.getItem('collection') || '[]');
-  collection.push(newBook);
-  collection.forEach((book, i) => {
-    book.index = i + 1;
-  });
-  localStorage.setItem('collection', JSON.stringify(collection));
-}
+// function addCollectionBook() {
+//   let collection = [];
+//   collection = JSON.parse(localStorage.getItem('collection') || '[]');
+//   collection.push(newBook);
+//   collection.forEach((book, i) => {
+//     book.index = i + 1;
+//   });
+//   localStorage.setItem('collection', JSON.stringify(collection));
+// }
 
 submitToCollection.addEventListener('click', (e) => {
   e.preventDefault();
