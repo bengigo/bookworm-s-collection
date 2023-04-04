@@ -42,15 +42,6 @@ collectionLink.addEventListener("click", () => {
   wishlistLink.classList.toggle("active");
 });
 
-// function Book(title, author, publishYear, numberOfPages, type, status) {
-//   this.title = title;
-//   this.author = author;
-//   this.publishYear = publishYear;
-//   this.numberOfPages = numberOfPages;
-//   this.type = type;
-//   this.status = status;
-//   this.index = collection.length + 1;
-// }
 class Book {
   constructor(title, author, publishYear, numberOfPages, type, status) {
     this.title = title;
