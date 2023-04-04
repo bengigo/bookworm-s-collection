@@ -1,44 +1,44 @@
-const collectionLink = document.querySelector("#collection-link");
-const collectionAuthorInput = document.querySelector("#author-collection");
-const collectionTitleInput = document.querySelector("#title-collection");
-const collectionYearInput = document.querySelector("#year-collection");
-const collectionPagesInput = document.querySelector("#pages-collection");
-const readCheck = document.querySelector("#read");
-const notReadCheck = document.querySelector("#not-read");
-let status = "";
+const collectionLink = document.querySelector('#collection-link');
+const collectionAuthorInput = document.querySelector('#author-collection');
+const collectionTitleInput = document.querySelector('#title-collection');
+const collectionYearInput = document.querySelector('#year-collection');
+const collectionPagesInput = document.querySelector('#pages-collection');
+const readCheck = document.querySelector('#read');
+const notReadCheck = document.querySelector('#not-read');
+let status = '';
 function statusCheck() {
   if (readCheck.checked) {
-    status = "Read";
+    status = 'Read';
   }
   if (notReadCheck.checked) {
-    status = "Not read";
+    status = 'Not read';
   }
   return status;
 }
-const printedCheck = document.querySelector("#printed");
-const digitalCheck = document.querySelector("#digital");
-let type = "";
+const printedCheck = document.querySelector('#printed');
+const digitalCheck = document.querySelector('#digital');
+let type = '';
 function typeCheck() {
   if (printedCheck.checked) {
-    type = "Printed";
+    type = 'Printed';
   }
   if (digitalCheck.checked) {
-    type = "E-book";
+    type = 'E-book';
   }
   return type;
 }
-const submitToCollection = document.querySelector("#submit-collection");
-const collectionContainer = document.querySelector("#collection-container");
-const bookList = document.querySelector("#collection");
+const submitToCollection = document.querySelector('#submit-collection');
+const collectionContainer = document.querySelector('#collection-container');
+const bookList = document.querySelector('#collection');
 
 let collection = [];
-collection = JSON.parse(localStorage.getItem("collection") || "[]");
+collection = JSON.parse(localStorage.getItem('collection') || '[]');
 
-collectionLink.addEventListener("click", () => {
-  wishlistContainer.style.display = "none";
-  collectionContainer.style.display = "flex";
-  collectionLink.classList.toggle("passive");
-  wishlistLink.classList.toggle("active");
+collectionLink.addEventListener('click', () => {
+  wishlistContainer.style.display = 'none';
+  collectionContainer.style.display = 'flex';
+  collectionLink.classList.toggle('passive');
+  wishlistLink.classList.toggle('active');
 });
 
 class Book {
@@ -53,15 +53,15 @@ class Book {
   }
 
   static display() {
-    bookList.innerHTML = "";
-    let checkedStatus = "";
+    bookList.innerHTML = '';
+    let checkedStatus = '';
     let collection = [];
-    collection = JSON.parse(localStorage.getItem("collection") || "[]");
+    collection = JSON.parse(localStorage.getItem('collection') || '[]');
     collection.forEach((book) => {
-      if (book.status === "Read") {
-        checkedStatus = "checked";
+      if (book.status === 'Read') {
+        checkedStatus = 'checked';
       } else {
-        checkedStatus = "";
+        checkedStatus = '';
       }
       bookList.innerHTML += `
            <li class="card">
@@ -94,55 +94,55 @@ class Book {
       publishYear,
       numberOfPages,
       typeCheck(),
-      statusCheck()
+      statusCheck(),
     );
-    collection = JSON.parse(localStorage.getItem("collection") || "[]");
+    collection = JSON.parse(localStorage.getItem('collection') || '[]');
     collection.push(newBook);
     collection.forEach((book, i) => {
       book.index = i + 1;
     });
-    localStorage.setItem("collection", JSON.stringify(collection));
+    localStorage.setItem('collection', JSON.stringify(collection));
     Book.display();
   }
 
   static changeStatus() {
-    bookList.addEventListener("click", (e) => {
+    bookList.addEventListener('click', (e) => {
       e.preventDefault();
-      if (e.target.classList.contains("slider")) {
+      if (e.target.classList.contains('slider')) {
         const collection = JSON.parse(
-          localStorage.getItem("collection") || "[]"
+          localStorage.getItem('collection') || '[]',
         );
         const objIndex = Number(e.target.id);
-        if (collection[objIndex - 1].status === "Read") {
-          collection[objIndex - 1].status = "Not read";
+        if (collection[objIndex - 1].status === 'Read') {
+          collection[objIndex - 1].status = 'Not read';
         } else {
-          collection[objIndex - 1].status = "Read";
+          collection[objIndex - 1].status = 'Read';
         }
-        localStorage.setItem("collection", JSON.stringify(collection));
+        localStorage.setItem('collection', JSON.stringify(collection));
         Book.display();
       }
     });
   }
 
   static delete() {
-    bookList.addEventListener("click", (e) => {
+    bookList.addEventListener('click', (e) => {
       e.preventDefault();
-      if (e.target.classList.contains("remove")) {
-        let collection = JSON.parse(localStorage.getItem("collection") || "[]");
+      if (e.target.classList.contains('remove')) {
+        let collection = JSON.parse(localStorage.getItem('collection') || '[]');
         collection = collection.filter(
-          (book) => book.index !== Number(e.target.id)
+          (book) => book.index !== Number(e.target.id),
         );
         collection.forEach((book, i) => {
           book.index = i + 1;
         });
-        localStorage.setItem("collection", JSON.stringify(collection));
+        localStorage.setItem('collection', JSON.stringify(collection));
       }
       Book.display();
     });
   }
 }
 
-submitToCollection.addEventListener("click", (e) => {
+submitToCollection.addEventListener('click', (e) => {
   e.preventDefault();
   Book.add();
 });
