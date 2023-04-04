@@ -117,25 +117,6 @@ function displayCollection() {
   });
 }
 
-// function createBook() {
-//   const author = collectionAuthorInput.value;
-//   const title = collectionTitleInput.value;
-//   const publishYear = collectionYearInput.value;
-//   const numberOfPages = collectionPagesInput.value;
-//   newBook = new Book(title, author, publishYear, numberOfPages, typeCheck(), statusCheck());
-//   return newBook;
-// }
-
-// function addCollectionBook() {
-//   let collection = [];
-//   collection = JSON.parse(localStorage.getItem('collection') || '[]');
-//   collection.push(newBook);
-//   collection.forEach((book, i) => {
-//     book.index = i + 1;
-//   });
-//   localStorage.setItem('collection', JSON.stringify(collection));
-// }
-
 submitToCollection.addEventListener('click', (e) => {
   e.preventDefault();
   // not applying a form validation to prevent empty input value submits
