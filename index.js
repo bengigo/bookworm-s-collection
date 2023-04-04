@@ -30,7 +30,6 @@ function typeCheck() {
 const submitToCollection = document.querySelector("#submit-collection");
 const collectionContainer = document.querySelector("#collection-container");
 const bookList = document.querySelector("#collection");
-// let newBook = {};
 
 let collection = [];
 collection = JSON.parse(localStorage.getItem("collection") || "[]");
@@ -53,7 +52,6 @@ class Book {
     this.index = collection.length + 1;
   }
 
-  // displaying collection
   static display() {
     bookList.innerHTML = "";
     let checkedStatus = "";
@@ -84,7 +82,6 @@ class Book {
     });
   }
 
-  // adding to collection
   static add() {
     let collection = [];
     const title = collectionTitleInput.value;
@@ -108,7 +105,6 @@ class Book {
     Book.display();
   }
 
-  // changing status
   static changeStatus() {
     bookList.addEventListener("click", (e) => {
       e.preventDefault();
@@ -128,7 +124,6 @@ class Book {
     });
   }
 
-  // deleting from collection
   static delete() {
     bookList.addEventListener("click", (e) => {
       e.preventDefault();
@@ -144,17 +139,13 @@ class Book {
       }
       Book.display();
     });
-    
   }
 }
 
 submitToCollection.addEventListener("click", (e) => {
   e.preventDefault();
-  // not applying a form validation to prevent empty input value submits
-  // because input fields will be converted to 'required'
   Book.add();
 });
-
 
 Book.display();
 Book.changeStatus();
