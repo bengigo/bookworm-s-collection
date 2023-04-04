@@ -129,6 +129,23 @@ class Book {
   }
 
   // deleting from collection
+  static delete() {
+    bookList.addEventListener("click", (e) => {
+      e.preventDefault();
+      if (e.target.classList.contains("remove")) {
+        let collection = JSON.parse(localStorage.getItem("collection") || "[]");
+        collection = collection.filter(
+          (book) => book.index !== Number(e.target.id)
+        );
+        collection.forEach((book, i) => {
+          book.index = i + 1;
+        });
+        localStorage.setItem("collection", JSON.stringify(collection));
+      }
+      Book.display();
+    });
+    
+  }
 }
 
 submitToCollection.addEventListener("click", (e) => {
@@ -138,19 +155,7 @@ submitToCollection.addEventListener("click", (e) => {
   Book.add();
 });
 
-bookList.addEventListener("click", (e) => {
-  e.preventDefault();
-  if (e.target.classList.contains("remove")) {
-    let collection = JSON.parse(localStorage.getItem("collection") || "[]");
-    collection = collection.filter(
-      (book) => book.index !== Number(e.target.id)
-    );
-    collection.forEach((book, i) => {
-      book.index = i + 1;
-    });
-    localStorage.setItem("collection", JSON.stringify(collection));
-  }
-});
 
 Book.display();
 Book.changeStatus();
+Book.delete();
