@@ -1,22 +1,21 @@
-const wishlistLink = document.querySelector("#wishlist-link");
-const wishlistTitleInput = document.querySelector("#title-wishlist");
-const wishlistAuthorInput = document.querySelector("#author-wishlist");
-const wishlistYearInput = document.querySelector("#year-wishlist");
-const wishlistPagesInput = document.querySelector("#pages-wishlist");
-const linkInput = document.querySelector("#purchase-link");
-const submitToWishlist = document.querySelector("#submit-wishlist");
-const wishlistContainer = document.querySelector("#wishlist-container");
-const wishList = document.querySelector("#wishlist");
-let newWishBook = {};
+const wishlistLink = document.querySelector('#wishlist-link');
+const wishlistTitleInput = document.querySelector('#title-wishlist');
+const wishlistAuthorInput = document.querySelector('#author-wishlist');
+const wishlistYearInput = document.querySelector('#year-wishlist');
+const wishlistPagesInput = document.querySelector('#pages-wishlist');
+const linkInput = document.querySelector('#purchase-link');
+const submitToWishlist = document.querySelector('#submit-wishlist');
+const wishlistContainer = document.querySelector('#wishlist-container');
+const wishList = document.querySelector('#wishlist');
 
 let wishlist = [];
-wishlist = JSON.parse(localStorage.getItem("wishlist") || "[]");
+wishlist = JSON.parse(localStorage.getItem('wishlist') || '[]');
 
-wishlistLink.addEventListener("click", () => {
-  collectionContainer.style.display = "none";
-  wishlistContainer.style.display = "flex";
-  collectionLink.classList.toggle("passive");
-  wishlistLink.classList.toggle("active");
+wishlistLink.addEventListener('click', () => {
+  collectionContainer.style.display = 'none';
+  wishlistContainer.style.display = 'flex';
+  collectionLink.classList.toggle('passive');
+  wishlistLink.classList.toggle('active');
 });
 
 class WishBook {
@@ -27,11 +26,11 @@ class WishBook {
     this.numberOfPages = numberOfPages;
     this.purchaseLink = purchaseLink;
     this.index = wishlist.length + 1;
-    this.status = "Not read";
+    this.status = 'Not read';
   }
 
   static display() {
-    wishList.innerHTML = "";
+    wishList.innerHTML = '';
     wishlist.forEach((book) => {
       wishList.innerHTML += `
       <li class="card">
@@ -50,7 +49,7 @@ class WishBook {
 
   static add() {
     let wishlist = [];
-    wishlist = JSON.parse(localStorage.getItem("wishlist") || "[]");
+    wishlist = JSON.parse(localStorage.getItem('wishlist') || '[]');
     const title = wishlistTitleInput.value;
     const author = wishlistAuthorInput.value;
     const publishYear = wishlistYearInput.value;
@@ -61,43 +60,43 @@ class WishBook {
       author,
       publishYear,
       numberOfPages,
-      purchaseLink
+      purchaseLink,
     );
     wishlist.push(newWishBook);
     wishlist.forEach((book, i) => {
       book.index = i + 1;
     });
-    localStorage.setItem("wishlist", JSON.stringify(wishlist));
+    localStorage.setItem('wishlist', JSON.stringify(wishlist));
     WishBook.display();
   }
 
   static delete() {
-    wishList.addEventListener("click", (e) => {
+    wishList.addEventListener('click', (e) => {
       e.preventDefault();
-      if (e.target.classList.contains("remove")) {
-        let wishlist = JSON.parse(localStorage.getItem("wishlist") || "[]");
+      if (e.target.classList.contains('remove')) {
+        let wishlist = JSON.parse(localStorage.getItem('wishlist') || '[]');
         wishlist = wishlist.filter(
-          (book) => book.index !== Number(e.target.id)
+          (book) => book.index !== Number(e.target.id),
         );
         wishlist.forEach((book, i) => {
           book.index = i + 1;
         });
-        localStorage.setItem("wishlist", JSON.stringify(wishlist));
+        localStorage.setItem('wishlist', JSON.stringify(wishlist));
       }
       WishBook.display();
     });
   }
 }
 
-submitToWishlist.addEventListener("click", (e) => {
+submitToWishlist.addEventListener('click', (e) => {
   e.preventDefault();
   WishBook.add();
 });
 
-wishList.addEventListener("click", (e) => {
+wishList.addEventListener('click', (e) => {
   e.preventDefault();
-  if (e.target.tagName === "A") {
-    window.open(e.target.href, "_blank");
+  if (e.target.tagName === 'A') {
+    window.open(e.target.href, '_blank');
   }
 });
 
