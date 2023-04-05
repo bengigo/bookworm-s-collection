@@ -31,8 +31,8 @@ const submitToCollection = document.querySelector('#submit-collection');
 const collectionContainer = document.querySelector('#collection-container');
 const bookList = document.querySelector('#collection');
 
-let collection = [];
-collection = JSON.parse(localStorage.getItem('collection') || '[]');
+// let collection = [];
+// collection = JSON.parse(localStorage.getItem('collection') || '[]');
 
 collectionLink.addEventListener('click', () => {
   wishlistContainer.style.display = 'none';
