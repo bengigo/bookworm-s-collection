@@ -71,7 +71,6 @@ class WishBook {
     WishBook.display();
   }
 
-  // delete
   static delete() {
     wishList.addEventListener("click", (e) => {
       e.preventDefault();
@@ -99,26 +98,6 @@ wishList.addEventListener("click", (e) => {
   e.preventDefault();
   if (e.target.tagName === "A") {
     window.open(e.target.href, "_blank");
-  }
-});
-
-wishList.addEventListener("click", (e) => {
-  e.preventDefault();
-  if (e.target.classList.contains("move")) {
-    let wishlist = JSON.parse(localStorage.getItem("wishlist") || "[]");
-    wishlist = wishlist.filter((book) => book.index !== Number(e.target.id));
-    wishlist.forEach((book, i) => {
-      book.index = i + 1;
-    });
-    localStorage.setItem("wishlist", JSON.stringify(wishlist));
-    displayWishlist();
-    const collection = JSON.parse(localStorage.getItem("collection") || "[]");
-    collection.push(newWishBook);
-    collection.forEach((book, i) => {
-      book.index = i + 1;
-    });
-    localStorage.setItem("collection", JSON.stringify(collection));
-    displayCollection();
   }
 });
 
