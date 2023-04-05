@@ -19,15 +19,28 @@ wishlistLink.addEventListener('click', () => {
   wishlistLink.classList.toggle('active');
 });
 
-function WishBook(title, author, publishYear, numberOfPages, purchaseLink) {
-  this.title = title;
-  this.author = author;
-  this.publishYear = publishYear;
-  this.numberOfPages = numberOfPages;
-  this.purchaseLink = purchaseLink;
-  this.index = wishlist.length + 1;
-  this.status = 'Not read';
+// function WishBook(title, author, publishYear, numberOfPages, purchaseLink) {
+//   this.title = title;
+//   this.author = author;
+//   this.publishYear = publishYear;
+//   this.numberOfPages = numberOfPages;
+//   this.purchaseLink = purchaseLink;
+//   this.index = wishlist.length + 1;
+//   this.status = 'Not read';
+// }
+
+class WishBook {
+  constructor(title, author, publishYear, numberOfPages, purchaseLink) {
+    this.title = title;
+    this.author = author;
+    this.publishYear = publishYear;
+    this.numberOfPages = numberOfPages;
+    this.purchaseLink = purchaseLink;
+    this.index = wishlist.length + 1;
+    this.status = 'Not read';
+  }
 }
+
 
 function displayWishlist() {
   wishList.innerHTML = '';
