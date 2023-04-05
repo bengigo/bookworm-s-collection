@@ -47,24 +47,30 @@ class WishBook {
       `;
     });
   }
-}
 
-function addWishBook() {
-  let wishlist = [];
-  wishlist = JSON.parse(localStorage.getItem("wishlist") || "[]");
-  wishlist.push(newWishBook);
-  wishlist.forEach((book, i) => {
-    book.index = i + 1;
-  });
-  localStorage.setItem("wishlist", JSON.stringify(wishlist));
+  // add
+  static add() {
+    let wishlist = [];
+    wishlist = JSON.parse(localStorage.getItem("wishlist") || "[]");
+    // (title, author, publishYear, numberOfPages, purchaseLink)
+    const title = wishlistTitleInput.value;
+    const author = wishlistAuthorInput.value;
+    const publishYear = wishlistYearInput.value;
+    const numberOfPages = wishlistPagesInput.value;
+    const purchaseLink = linkInput.value;
+    const newWishBook = new WishBook(title, author, publishYear, numberOfPages, purchaseLink);
+    wishlist.push(newWishBook);
+    wishlist.forEach((book, i) => {
+      book.index = i + 1;
+    });
+    localStorage.setItem("wishlist", JSON.stringify(wishlist));
+    WishBook.display();
+  } 
 }
 
 submitToWishlist.addEventListener("click", (e) => {
   e.preventDefault();
-  // createWishBook();
-  addWishBook();
-  // displayWishlist();
-  setTimeout(hideWishlistForm, 150);
+  WishBook.add()
 });
 
 wishList.addEventListener("click", (e) => {
@@ -76,7 +82,6 @@ wishList.addEventListener("click", (e) => {
       book.index = i + 1;
     });
     localStorage.setItem("wishlist", JSON.stringify(wishlist));
-    // displayWishlist();
   }
 });
 
