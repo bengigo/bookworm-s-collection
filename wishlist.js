@@ -51,7 +51,6 @@ class WishBook {
   static add() {
     let wishlist = [];
     wishlist = JSON.parse(localStorage.getItem("wishlist") || "[]");
-    // (title, author, publishYear, numberOfPages, purchaseLink)
     const title = wishlistTitleInput.value;
     const author = wishlistAuthorInput.value;
     const publishYear = wishlistYearInput.value;
